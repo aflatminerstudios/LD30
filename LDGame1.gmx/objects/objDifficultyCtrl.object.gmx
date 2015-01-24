@@ -94,6 +94,33 @@ switch (pctWrong) {
         break;        
 }
 
+switch (sfxVolume) {
+    case (0.25):
+        sfxChoice.x = 450;
+        break;
+    
+    case (0.5):
+        sfxChoice.x = 600;
+        break;
+    
+    case (1):
+        sfxChoice.x = 750;
+        break;        
+}
+
+switch (musicVolume) {
+    case (0.25):
+        musicChoice.x = 450;
+        break;
+    
+    case (0.5):
+        musicChoice.x = 600;
+        break;
+    
+    case (1):
+        musicChoice.x = 750;
+        break;        
+}
 </string>
           </argument>
         </arguments>
@@ -159,7 +186,7 @@ if (useGamePad) {
         }
         useGamePad = false;    
     } else if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
-        if (selectedOption != optWorkload) {
+        if (selectedOption != optMusicVolume) {
             optionChoice.y += 100;
             selectedOption += 1;
         }
@@ -266,7 +293,7 @@ draw_set_halign(fa_left);
             <kind>1</kind>
             <string>///Select Next Option
 
-if (selectedOption != optWorkload) {
+if (selectedOption != optMusicVolume) {
     optionChoice.y += 100;
     selectedOption += 1;
 }

@@ -62,7 +62,7 @@ score += 1000 * multiplier;
 
 var whichSound = choose(sndPowerup1, sndPowerup2, sndPowerup3, sndPowerup4, sndPowerup5);
 
-audio_play_sound(whichSound, 75, false);
+audio_play_sound_on(sfxEmit, whichSound, false, 75);
 
 if (object_index == objAngel) {
     gamepad_set_vibration(0,0,0.5);

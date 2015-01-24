@@ -52,7 +52,7 @@ bgPosBaseOffset = 0;
 
 alarm[1] = room_speed/bgPosOffsetMoveSpeed;
 
-audio_play_sound(musTitleScreen,10,true);
+audio_play_sound_on(musicEmit,musTitleScreen,true,10);
 </string>
           </argument>
         </arguments>

@@ -30,6 +30,12 @@ globalvar musicVolume;
 globalvar sfxVolume;
 globalvar totalTime;
 
+globalvar musicEmit;
+globalvar sfxEmit;
+
+musicEmit = noone;
+sfxEmit = noone;
+
 baseSoulSpeed = 2.5 * 60/room_speed;
 basePersonSpeed = 0.8 * 60/room_speed;
 soulSpeed = baseSoulSpeed;
@@ -61,8 +67,10 @@ highScore = 0;
 
 multiplier = 1;
 
-globalVolume = 100;
-musicVolume = 100;
-sfxVolume = 100;
+globalVolume = 1;
+musicVolume = 1;
+sfxVolume = 1;
 
 totalTime = 120;
+
+scrSetupSound();
