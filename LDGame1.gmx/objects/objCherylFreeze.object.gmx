@@ -73,6 +73,15 @@ soulSpeed = 0;
 personSpeed = 0;
 
 alarm[1] = 3 * room_speed;
+
+if (isVersus) {
+    with (objDevil) {
+        frozen = true;
+        image_speed = 0;
+        
+        alarm[1] = 3 * room_speed;
+    }
+}
 </string>
           </argument>
         </arguments>

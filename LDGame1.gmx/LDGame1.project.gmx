@@ -149,6 +149,8 @@
     <background>background\bgTitleForeground</background>
     <background>background\bgAFlatMinerLogo</background>
     <background>background\bgTitleMenu</background>
+    <background>background\bgCheryl</background>
+    <background>background\bgSonia</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -235,7 +237,6 @@
       <object>objects\objFreeze</object>
       <object>objects\objIncGood</object>
       <object>objects\objIncEvil</object>
-      <object>objects\objIncRight</object>
       <object>objects\objSpawn</object>
       <object>objects\objGoodUp</object>
       <object>objects\objEvilDown</object>
@@ -251,6 +252,7 @@
     <object>objects\objAnvil</object>
     <objects name="instructions">
       <object>objects\objInstructionSonia</object>
+      <object>objects\objIncRight</object>
       <object>objects\objInstructionsCheryl</object>
       <object>objects\objInstructionsPerson</object>
       <object>objects\objSoniaMotion</object>
@@ -272,6 +274,8 @@
     <object>objects\objChatterTest</object>
     <object>objects\objAFlatMinerLogo</object>
     <object>objects\objSpriteTrail</object>
+    <object>objects\objEasyControlSonia</object>
+    <object>objects\objEasyControlCheryl</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmLogo</room>
@@ -283,6 +287,8 @@
     <room>rooms\rmGameOver</room>
     <room>rooms\rmControls</room>
     <room>rooms\rmCredits</room>
+    <room>rooms\rmEZSonia</room>
+    <room>rooms\rmEZCheryl</room>
   </rooms>
   <constants number="15">
     <constant name="GM_build_date">41879.9125321412</constant>

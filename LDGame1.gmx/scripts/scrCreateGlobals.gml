@@ -5,6 +5,8 @@ globalvar personSpeed; //Walking speed
 globalvar baseSoulSpeed;
 globalvar basePersonSpeed;
 
+globalvar freezeSeconds;
+
 globalvar baseSpeed;
 globalvar maxSpeed; //Max speed of player
 globalvar maxPeople;
@@ -42,6 +44,8 @@ soulSpeed = baseSoulSpeed;
 personSpeed = basePersonSpeed;
 baseSpeed = 5 * 60/room_speed;
 maxSpeed = 5 * 60/room_speed;
+
+freezeSeconds = 2;
 
 maxPeople = 20;
 minLife = 1;

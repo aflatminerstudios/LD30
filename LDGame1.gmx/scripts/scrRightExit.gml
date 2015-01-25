@@ -10,12 +10,12 @@ numberRight += 1;
 if (soul.object_index = objGoodSoul) {
     numberGoodRight += 1;
     with (objAngel) {
-       myScore += pts * mult;
+       myScore += pts * mult * scoreMult;
     }
 } else if (soul.object_index = objEvilSoul) {
     numberEvilRight += 1;
     with (objDevil) {
-       myScore += pts * mult;
+       myScore += pts * mult * scoreMult;
     }
 }
 

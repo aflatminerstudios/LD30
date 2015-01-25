@@ -58,6 +58,15 @@ with (objEvilSoul) {
     }
 }
 
+if (!isVersus) {
+    with (objGoodSoul) {
+        if (soulDirection == down) {
+            soulDirection = up;
+            sprite_index = upSprite;
+        }        
+    }
+}
+
 alarm[1] = 1;
 </string>
           </argument>

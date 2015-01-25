@@ -25,10 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>maxSpeed = maxSpeed / 2;
-
-if (maxSpeed &lt;= baseSpeed) {
-    maxSpeed = baseSpeed;
+            <string>
+if (isVersus) {
+    with (objAngel) {
+        speedMult /= 2;
+        if (speedMult &lt; 1) {
+            speedMult = 1;
+        }
+    }
+} else {
+    maxSpeed = maxSpeed / 2;
+    
+    if (maxSpeed &lt;= baseSpeed) {
+        maxSpeed = baseSpeed;
+    }
 }
 
 alarm[3] = 1;
@@ -57,7 +67,13 @@ alarm[3] = 1;
             <string>x = -100;
 y = -100;
 
-maxSpeed = maxSpeed * 2;
+if (isVersus) {
+    with (objAngel) {
+        speedMult *= 2;
+    }
+} else {
+    maxSpeed = maxSpeed * 2;
+}
 
 alarm[1] =  10 * room_speed;
 </string>
