@@ -35,8 +35,8 @@ bottomTextAlpha = 0;
 alarm[0] = 0.5 * room_speed;
 
 //Music
-var snd = audio_play_sound(sndGameOver, 100, true);
-audio_sound_gain(snd, 0.3, 0);
+var snd = audio_play_sound_on(musicEmit,sndGameOver, 100, true);
+//audio_sound_gain(snd, 0.3, 0);
 
 </string>
           </argument>

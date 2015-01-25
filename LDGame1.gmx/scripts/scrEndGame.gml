@@ -7,7 +7,7 @@ with (objPowerup) {
 var whichSound = choose(sndGameOver1,sndGameOver2,
   sndGameOver3,sndGameOver4,sndGameOver5,sndGameOver6,sndGameOver7);
 
-audio_play_sound(whichSound,75,false);
+audio_play_sound_on(sfxEmit,whichSound,false,75);
 
 if (!isVersus) {
     if (score > highScore) {

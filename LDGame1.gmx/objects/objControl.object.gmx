@@ -45,7 +45,7 @@ for (var i = 0; i &lt; 4; ++i) {
 }
 
 //Music
-var snd = audio_play_sound(sndMusic, 100, true);
+var snd = audio_play_sound_on(musicEmit,sndMusic,true,100);
 audio_sound_gain(snd, 0.3, 0);
 //audio_sound_gain(snd, 0, 0); // Set sound to zero
 </string>

@@ -100,6 +100,51 @@ switch (which) {
         
         break;
     }
+    
+    case (optSFXVolume): {
+        box = sfxChoice;
+        
+        switch (sfxVolume) {
+        
+            case (0.25):
+                box = noone;
+                break;
+            
+            case (0.5):
+                sfxVolume = 0.25;
+                audio_emitter_gain(sfxEmit, sfxVolume);
+                break;
+            
+            case (1):
+                sfxVolume = 0.5;
+                audio_emitter_gain(sfxEmit, sfxVolume);
+                break;        
+        }
+        
+        break;
+    }
+    case (optMusicVolume): {
+        box = musicChoice;
+        
+        switch (musicVolume) {
+        
+            case (0.25):
+                box = noone;
+                break;
+            
+            case (0.5):
+                musicVolume = 0.25;
+                audio_emitter_gain(musicEmit, musicVolume);
+                break;
+            
+            case (1):
+                musicVolume = 0.5;
+                audio_emitter_gain(musicEmit, musicVolume);
+                break;        
+        }
+        
+        break;
+    }
 }
 
 return box;

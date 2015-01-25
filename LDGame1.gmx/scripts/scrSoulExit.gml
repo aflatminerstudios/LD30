@@ -16,7 +16,7 @@ if (soul.object_index == objGoodSoul) {
 
     }
     if (r < soundPlay) {
-        var snd = audio_play_sound(sndGoodCollected,50,false);
+        var snd = audio_play_sound_on(sfxEmit,sndGoodCollected,false,50);
         audio_sound_gain(snd, 0.75, 0);
     }    
     
@@ -27,7 +27,7 @@ if (soul.object_index == objGoodSoul) {
         scrWrongExit(soul);
     }
     if (r < soundPlay) {
-        audio_play_sound(sndEvilCollected,50,false);
+        audio_play_sound_on(sfxEmit,sndEvilCollected,false,50);
     }        
 }
 

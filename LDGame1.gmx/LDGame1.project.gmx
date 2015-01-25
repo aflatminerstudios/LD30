@@ -149,6 +149,7 @@
     <script>scripts\scrCheckController.gml</script>
     <script>scripts\scrSoulExit.gml</script>
     <script>scripts\scrCreateTrailSprite.gml</script>
+    <script>scripts\scrSetupSound.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntGameOver</font>
@@ -247,7 +248,7 @@
     <room>rooms\rmControls</room>
     <room>rooms\rmCredits</room>
   </rooms>
-  <constants number="13">
+  <constants number="15">
     <constant name="GM_build_date">41879.9125321412</constant>
     <constant name="GM_version">'1.0.0.18'</constant>
     <constant name="middle">300</constant>
@@ -257,6 +258,8 @@
     <constant name="optPop">1</constant>
     <constant name="optDeath">2</constant>
     <constant name="optWorkload">3</constant>
+    <constant name="optSFXVolume">4</constant>
+    <constant name="optMusicVolume">5</constant>
     <constant name="optStart">0</constant>
     <constant name="optHowToPlay">1</constant>
     <constant name="optOptions">2</constant>

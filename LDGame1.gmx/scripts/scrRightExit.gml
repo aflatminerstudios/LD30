@@ -7,8 +7,6 @@ var mult = multiplier;
 
 numberRight += 1;
 
-
-
 if (soul.object_index = objGoodSoul) {
     numberGoodRight += 1;
     with (objAngel) {

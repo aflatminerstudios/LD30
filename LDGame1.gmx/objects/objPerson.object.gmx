@@ -117,7 +117,7 @@ var whichSoundF = choose(sndChatterF1, sndChatterF2,
 
 var whichSound = choose(whichSoundM, whichSoundF);  
     
-var sound = audio_play_sound(whichSound, 50, false);
+var sound = audio_play_sound_on(sfxEmit, whichSound, false, 50);
 
 var bubble = instance_create(x, y - 16, objSpeech);
 
