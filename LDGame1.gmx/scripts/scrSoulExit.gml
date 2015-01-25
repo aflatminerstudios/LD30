@@ -17,7 +17,6 @@ if (soul.object_index == objGoodSoul) {
     }
     if (r < soundPlay) {
         var snd = audio_play_sound_on(sfxEmit,sndGoodCollected,false,50);
-        audio_sound_gain(snd, 0.75, 0);
     }    
     
 } else if (soul.object_index == objEvilSoul) {

@@ -35,7 +35,7 @@ image_speed = 6 / room_speed;
 var r = random(1);
 
 if ((sprite_index == sprBird) &amp;&amp; (r &lt; 0.33)) {
-    audio_play_sound(sndBirdWhistle, 100, false);
+    audio_play_sound_on(sfxEmit, sndBirdWhistle, false, 100);
 }
 </string>
           </argument>

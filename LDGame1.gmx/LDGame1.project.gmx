@@ -64,14 +64,12 @@
       <sprite>sprites\sprTime</sprite>
       <sprite>sprites\sprFreeze</sprite>
     </sprites>
-    <sprite>sprites\sprSlider</sprite>
     <sprites name="person">
       <sprite>sprites\sprPerson</sprite>
       <sprite>sprites\sprDeath2</sprite>
       <sprite>sprites\sprDeath3</sprite>
       <sprite>sprites\sprDeath1</sprite>
     </sprites>
-    <sprite>sprites\sprSliderThing</sprite>
     <sprites name="players">
       <sprite>sprites\sprAngelDown</sprite>
       <sprite>sprites\sprAngelUp</sprite>
@@ -119,6 +117,8 @@
     <sprites name="Title">
       <sprite>sprites\sprTitleStart</sprite>
     </sprites>
+    <sprite>sprites\sprSlider</sprite>
+    <sprite>sprites\sprSliderMark</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -209,6 +209,8 @@
       <object>objects\objDifficultyCtrlCopy</object>
       <object>objects\objOptionBox</object>
       <object>objects\objOptionChoice</object>
+      <object>objects\objSliderMark</object>
+      <object>objects\objSlider</object>
     </objects>
     <object>objects\objAnvil</object>
     <objects name="instructions">
@@ -224,8 +226,6 @@
       <object>objects\objInstructionsBalloon</object>
       <object>objects\objInstructions2Mult</object>
     </objects>
-    <object>objects\objSlider</object>
-    <object>objects\objSliderThing</object>
     <object>objects\objDeadSoul</object>
     <object>objects\objSpeech</object>
     <object>objects\objBalloons</object>

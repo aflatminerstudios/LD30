@@ -34,3 +34,4 @@ with (objControl) {
 
 audio_stop_sound(sndMusic);
 gamepad_set_vibration(0,0,0);
+gamepad_set_vibration(1,0,0);

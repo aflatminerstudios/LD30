@@ -94,32 +94,168 @@ switch (pctWrong) {
         break;        
 }
 
-switch (sfxVolume) {
-    case (0.25):
-        sfxChoice.x = 450;
-        break;
-    
-    case (0.5):
-        sfxChoice.x = 600;
-        break;
-    
-    case (1):
-        sfxChoice.x = 750;
-        break;        
+
+alarm[11] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set up sliders
+
+sfxSlider.curValue = sfxVolume;
+musicSlider.curValue = musicVolume;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Raise music volume 
+if (musicSlider.curValue == 0) {
+    musicEmit = audio_emitter_create();
+    audio_play_sound_on(musicEmit,musTitleScreen,true,10); 
 }
 
-switch (musicVolume) {
-    case (0.25):
-        musicChoice.x = 450;
-        break;
-    
-    case (0.5):
-        musicChoice.x = 600;
-        break;
-    
-    case (1):
-        musicChoice.x = 750;
-        break;        
+if (musicSlider.curValue &lt; 1) {
+    musicSlider.curValue += 0.05;
+    musicVolume = (power(75,(musicSlider.curValue)) - 1)/74;   
+    audio_emitter_gain(musicEmit, musicVolume);   
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Lower music volume 
+if (musicSlider.curValue &gt; 0) {
+    musicSlider.curValue -= 0.05;
+    musicVolume = (power(75,(musicSlider.curValue)) - 1)/74;   
+    audio_emitter_gain(musicEmit, musicVolume);    
+}
+if (musicSlider.curValue == 0) {
+    audio_stop_sound(musTitleScreen);
+    audio_emitter_free(musicEmit);
+    musicEmit = noone;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Raise SFX volume
+
+if (sfxSlider.curValue == 0) {
+    sfxEmit = audio_emitter_create();
+}
+
+if (sfxSlider.curValue &lt; 1) {
+    sfxSlider.curValue += 0.05;
+    sfxVolume = (power(75,(sfxSlider.curValue)) - 1)/74;   
+    audio_emitter_gain(sfxEmit, sfxVolume);   
+    audio_play_sound_on(sfxEmit,sndGoodCollected,false,50); 
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Lower SFX volume 
+if (sfxSlider.curValue &gt; 0) {
+    sfxSlider.curValue -= 0.05;
+    sfxVolume = (power(75,(sfxSlider.curValue)) - 1)/74;   
+    audio_emitter_gain(sfxEmit, sfxVolume);    
+    audio_play_sound_on(sfxEmit,sndGoodCollected,false,50);
+}
+
+if (sfxSlider.curValue == 0) {
+    audio_emitter_free(sfxEmit);
+    sfxEmit = noone;
 }
 </string>
           </argument>
@@ -166,25 +302,34 @@ switch (musicVolume) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set Options using gamepad
+            <string>///Set Options
 
-hVal = gamepad_axis_value(0, gp_axislh);
-vVal = gamepad_axis_value(0, gp_axislv);
 
-if (useGamePad) {
+if (selectedOption == optSFXVolume) {
+    if (keyboard_check(vk_left)) {
+        if (alarm[1] &lt;= 0) {
+            alarm[1] = 0.25 * room_speed;
+        }
+    }
+    if (keyboard_check(vk_right)) {
+        if (alarm[2] &lt;= 0) {
+            alarm[2] = 0.25 * room_speed;
+        }
+    }
+    
+
+    hVal = gamepad_axis_value(0, gp_axislh);
+    vVal = gamepad_axis_value(0, gp_axislv);
+    if (useGamePad) {
 
     if (hVal &gt; 0.5 &amp;&amp; hVal &gt; vVal) {
-        var box = scrIncreaseOption(selectedOption);
-        if (box != noone) {
-            box.x += 150;
-        }        
-        useGamePad = false;
-    } else if (hVal &lt; -0.5 &amp;&amp; hVal &lt; vVal) {
-        var box = scrDecreaseOption(selectedOption);
-        if (box != noone) {
-            box.x -= 150;
+        if (alarm[2] &lt;= 0) {
+            alarm[2] = 0.25 * room_speed;
         }
-        useGamePad = false;    
+    } else if (hVal &lt; -0.5 &amp;&amp; hVal &lt; vVal) {
+        if (alarm[1] &lt;= 0) {
+            alarm[1] = 0.25 * room_speed;
+        }
     } else if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
         if (selectedOption != optMusicVolume) {
             optionChoice.y += 100;
@@ -199,12 +344,97 @@ if (useGamePad) {
         useGamePad = false;    
     }
 
+    } else {
+        if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
+            useGamePad = true;
+        }
+    }
+                
+
+
+} else if (selectedOption == optMusicVolume) {
+    if (keyboard_check(vk_left)) {
+        if (alarm[3] &lt;= 0) {
+            alarm[3] = 0.25 * room_speed;
+        }
+    }
+    if (keyboard_check(vk_right)) {
+        if (alarm[4] &lt;= 0) {
+            alarm[4] = 0.25 * room_speed;
+        }
+    }
+
+        hVal = gamepad_axis_value(0, gp_axislh);
+    vVal = gamepad_axis_value(0, gp_axislv);
+    if (useGamePad) {
+
+    if (hVal &gt; 0.5 &amp;&amp; hVal &gt; vVal) {
+        if (alarm[4] &lt;= 0) {
+            alarm[4] = 0.25 * room_speed;
+        }
+    } else if (hVal &lt; -0.5 &amp;&amp; hVal &lt; vVal) {
+        if (alarm[3] &lt;= 0) {
+            alarm[3] = 0.25 * room_speed;
+        }
+    } else if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
+        if (selectedOption != optMusicVolume) {
+            optionChoice.y += 100;
+            selectedOption += 1;
+        }
+        useGamePad = false;    
+    } else if (vVal &lt; -0.5 &amp;&amp; vVal &lt; hVal) {
+        if (selectedOption != optTime) {
+            optionChoice.y -= 100;
+            selectedOption -= 1;
+        }
+        useGamePad = false;    
+    }
+
+    } else {
+        if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
+            useGamePad = true;
+        }
+    }
+
+    
 } else {
-    if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
-        useGamePad = true;
+    hVal = gamepad_axis_value(0, gp_axislh);
+    vVal = gamepad_axis_value(0, gp_axislv);
+    
+    if (useGamePad) {
+    
+        if (hVal &gt; 0.5 &amp;&amp; hVal &gt; vVal) {
+            var box = scrIncreaseOption(selectedOption);
+            if (box != noone) {
+                box.x += 150;
+            }        
+            useGamePad = false;
+        } else if (hVal &lt; -0.5 &amp;&amp; hVal &lt; vVal) {
+            var box = scrDecreaseOption(selectedOption);
+            if (box != noone) {
+                box.x -= 150;
+            }
+            useGamePad = false;    
+        } else if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
+            if (selectedOption != optMusicVolume) {
+                optionChoice.y += 100;
+                selectedOption += 1;
+            }
+            useGamePad = false;    
+        } else if (vVal &lt; -0.5 &amp;&amp; vVal &lt; hVal) {
+            if (selectedOption != optTime) {
+                optionChoice.y -= 100;
+                selectedOption -= 1;
+            }
+            useGamePad = false;    
+        }
+    
+    } else {
+        if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
+            useGamePad = true;
+        }
     }
 }
-
 
 ///Check for gamepad button
 
@@ -244,6 +474,7 @@ draw_text(125, 200, "Maximum Population");
 draw_text(125, 300, "Death Rate");
 draw_text(125, 400, "Workload");
 draw_text(125, 500, "SFX Volume");
+draw_text(125, 550, "Music Volume");
 
 draw_set_halign(fa_center);
 
@@ -264,9 +495,6 @@ draw_text(450, 400, "low");
 draw_text(600, 400, "med");
 draw_text(750, 400, "high");
 
-draw_text(450, 500, "low");
-draw_text(600, 500, "med");
-draw_text(750, 500, "high");
 
 draw_set_halign(fa_left);
 </string>
@@ -336,10 +564,12 @@ switch (selectedOption) {
             <kind>1</kind>
             <string>///Select next choice
 
-var box = scrIncreaseOption(selectedOption);
-
-if (box != noone) {
-    box.x += 150;
+if ((selectedOption != optSFXVolume) &amp;&amp; (selectedOption != optMusicVolume)) {
+    var box = scrIncreaseOption(selectedOption);
+    
+    if (box != noone) {
+        box.x += 150;
+    }
 }
 </string>
           </argument>
@@ -410,11 +640,14 @@ switch (selectedOption) {
             <kind>1</kind>
             <string>///Select previous choice
 
-var box = scrDecreaseOption(selectedOption);
 
-
-if (box != noone) {
-    box.x -= 150;
+if ((selectedOption != optSFXVolume) &amp;&amp; (selectedOption != optMusicVolume)) {
+    var box = scrDecreaseOption(selectedOption);
+    
+    
+    if (box != noone) {
+        box.x -= 150;
+    }
 }
 </string>
           </argument>
