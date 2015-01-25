@@ -86,22 +86,22 @@
     <sprite>sprites\sprMult4x</sprite>
     <sprites name="powerups">
       <sprites name="Cheryl">
-        <sprite>sprites\CherylPercentInc</sprite>
-        <sprite>sprites\CherylAllSoulsCorrect</sprite>
-        <sprite>sprites\CherylSpeed</sprite>
-        <sprite>sprites\CherylMoreTime</sprite>
-        <sprite>sprites\CherylSurge</sprite>
-        <sprite>sprites\CherylDoublePts</sprite>
-        <sprite>sprites\CherylFreeze</sprite>
+        <sprite>sprites\sprCherylPercentInc</sprite>
+        <sprite>sprites\sprCherylFreeze</sprite>
+        <sprite>sprites\sprCherylAllSoulsCorrect</sprite>
+        <sprite>sprites\sprCherylDoublePts</sprite>
+        <sprite>sprites\sprCherylSpeed</sprite>
+        <sprite>sprites\sprCherylMoreTime</sprite>
+        <sprite>sprites\sprCherylSurge</sprite>
       </sprites>
       <sprites name="Sonia">
-        <sprite>sprites\SoniaSurge</sprite>
-        <sprite>sprites\SoniaDoublePts</sprite>
-        <sprite>sprites\SoniaPercentInc</sprite>
-        <sprite>sprites\SoniaAllSoulsCorrect</sprite>
-        <sprite>sprites\SoniaSpeed</sprite>
-        <sprite>sprites\SoniaFreeze</sprite>
-        <sprite>sprites\SoniaMoreTime</sprite>
+        <sprite>sprites\sprSoniaPercentInc</sprite>
+        <sprite>sprites\sprSoniaFreeze</sprite>
+        <sprite>sprites\sprSoniaAllSoulsCorrect</sprite>
+        <sprite>sprites\sprSoniaDoublePts</sprite>
+        <sprite>sprites\sprSoniaSpeed</sprite>
+        <sprite>sprites\sprSoniaSurge</sprite>
+        <sprite>sprites\sprSoniaMoreTime</sprite>
       </sprites>
       <sprite>sprites\sprIncGood</sprite>
       <sprite>sprites\sprDblPoints</sprite>
@@ -211,6 +211,24 @@
     <objects name="powerups">
       <object>objects\objPowerup</object>
       <object>objects\objPowerupBase</object>
+      <objects name="Cheryl">
+        <object>objects\objCherylPercentInc</object>
+        <object>objects\objCherylAllSoulsCorrect</object>
+        <object>objects\objCherylFreeze</object>
+        <object>objects\objCherylSpeed</object>
+        <object>objects\objCherylMoreTime</object>
+        <object>objects\objCherylDoublePts</object>
+        <object>objects\objCherylPowerup</object>
+      </objects>
+      <objects name="Sonia">
+        <object>objects\objSoniaPowerup</object>
+        <object>objects\objSoniaPercentInc</object>
+        <object>objects\objSoniaAllSoulsCorrect</object>
+        <object>objects\objSoniaDoublePts</object>
+        <object>objects\objSoniaMoreTime</object>
+        <object>objects\objSoniaFreeze</object>
+        <object>objects\objSoniaSpeed</object>
+      </objects>
       <object>objects\objSpeedup</object>
       <object>objects\objDblPoints</object>
       <object>objects\objTime</object>
