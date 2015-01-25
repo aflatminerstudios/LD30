@@ -81,10 +81,13 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>/// Adjust depth
-if(alarm[0] &gt; 0)
+if(alarm[0] &gt; 0) {
   depth = lerp(furthestDepth, closestDepth, alarm[0]/timeToLive);
-else
+  image_alpha = lerp(0, 1, alarm[0]/timeToLive);
+} else {
   depth = furthestDepth;
+  image_alpha = 0;
+}
 </string>
           </argument>
         </arguments>

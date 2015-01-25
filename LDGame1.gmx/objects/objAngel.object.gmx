@@ -38,8 +38,8 @@ gamepad_set_axis_deadzone(0, 0.10);
 
 myScore = 0;
 
-trailFreq = room_speed/10; // room_speed/X = X per second
-trailTTL = 0.35*room_speed; // X*room_speed = X seconds for each frame to last
+trailFreq = room_speed/12; // room_speed/X = X per second
+trailTTL = 0.40*room_speed; // X*room_speed = X seconds for each frame to last
 
 
 alarm[0] = trailFreq;
