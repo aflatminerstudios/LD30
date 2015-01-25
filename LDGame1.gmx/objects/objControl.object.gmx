@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>///Setup
 
+room_goto(rmEZSonia);
+
 //scrCreateGlobals();
 
 randomize();
@@ -48,6 +50,8 @@ for (var i = 0; i &lt; 4; ++i) {
 var snd = audio_play_sound_on(musicEmit,sndMusic,true,100);
 audio_sound_gain(snd, 0.3, 0);
 //audio_sound_gain(snd, 0, 0); // Set sound to zero
+
+spawnY = middle - 8;
 </string>
           </argument>
         </arguments>

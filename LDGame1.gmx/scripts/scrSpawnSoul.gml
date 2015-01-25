@@ -13,8 +13,8 @@ with (person) {
     }
     
     if (r < pctGood) {
-        instance_create(x, middle, objGoodSoul);
+        instance_create(x, y, objGoodSoul);
     } else {
-        instance_create(x, middle, objEvilSoul);
+        instance_create(x, y, objEvilSoul);
     }
 }

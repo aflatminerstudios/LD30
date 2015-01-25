@@ -39,6 +39,18 @@ if (r &lt; pctWrong) {
     sprite_index = sprEvilSoulDown;
 }
 
+var controlObject = instance_find(objControl, 0);
+
+if (controlObject.object_index == objEasyControlCheryl){ 
+    soulDirection = down;
+    sprite_index = sprEvilSoulDown;
+} else if (controlObject.object_index == objEasyControlSonia) {
+    soulDirection = up;
+    sprite_index = sprEvilSoulUp;
+}
+
+
+
 points = basePoints;
 bumps = 0;
 

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>
 globalvar isVersus;
-isVersus = true;
+isVersus = false;
 
 selectedOption = optStart;
 

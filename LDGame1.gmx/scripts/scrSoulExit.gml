@@ -46,7 +46,11 @@ if (r < pctRespawn) {
     } else {
         xCoord = 1056;
     }
-    instance_create(xCoord, middle - 8, objPerson);
+    var tempSpawn;
+    with (objControl) {
+        tempSpawn = spawnY;
+    }
+    instance_create(xCoord, tempSpawn, objPerson);
 }
 
 with (soul) {

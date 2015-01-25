@@ -131,6 +131,8 @@
     <background>background\bgTitleForeground</background>
     <background>background\bgAFlatMinerLogo</background>
     <background>background\bgTitleMenu</background>
+    <background>background\bgCheryl</background>
+    <background>background\bgSonia</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -165,6 +167,8 @@
   <objects name="objects">
     <object>objects\objTimer</object>
     <object>objects\objControl</object>
+    <object>objects\objEasyControlCheryl</object>
+    <object>objects\objEasyControlSonia</object>
     <objects name="souls">
       <object>objects\objEvilSoul</object>
       <object>objects\objGoodSoul</object>
@@ -247,6 +251,8 @@
     <room>rooms\rmGameOver</room>
     <room>rooms\rmControls</room>
     <room>rooms\rmCredits</room>
+    <room>rooms\rmEZSonia</room>
+    <room>rooms\rmEZCheryl</room>
   </rooms>
   <constants number="15">
     <constant name="GM_build_date">41879.9125321412</constant>

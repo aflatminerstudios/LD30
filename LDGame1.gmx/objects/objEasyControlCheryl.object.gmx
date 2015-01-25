@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objControl</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,12 +25,56 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>remainingTime = totalTime;
+            <string>///Setup
 
+//scrCreateGlobals();
+
+randomize();
+
+//For spawning souls
 alarm[0] = 1 * room_speed;
-alarm[1] = 1;
-color = c_maroon;
-draw_set_colour(c_lime);
+
+//For spawning powerups
+alarm[1] = 1 * room_speed;
+
+//Spawn 5 people
+for (var i = 0; i &lt; 4; ++i) {
+    var xCoord = irandom(1024);
+    var person = instance_create(xCoord, 32, objPerson);
+    person.alarm[0] = irandom(minLife) * room_speed;
+}
+
+//Music
+var snd = audio_play_sound_on(musicEmit,sndMusic,true,100);
+audio_sound_gain(snd, 0.3, 0);
+
+spawnY = 32;
+
+//audio_sound_gain(snd, 0, 0); // Set sound to zero
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///End Game
+room_goto(rmGameOver);
 </string>
           </argument>
         </arguments>
@@ -53,11 +97,26 @@ draw_set_colour(c_lime);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var controlObject = instance_find(objControl,0);
+            <string>///Spawn powerups
 
-if (controlObject.object_index == objEasyControlCheryl) {
-    color = c_aqua;
+var r = random(1);
+
+if (r &lt; 0.06) {
+    var xCoord = irandom(1000) + 12;
+    var yCoord = irandom(576) + 12;
+    
+    var which = choose(objSpeedup, objDblPoints, objTime, 
+      objFreeze, objIncGood, objIncEvil, objIncRight, objGoodUp, objEvilDown);    
+
+    var powerup = instance_create(xCoord, yCoord, which);
+    
+    powerup.alarm[3] = 10 * room_speed;
+
 }
+
+alarm[1] = 1 * room_speed;
+
+
 </string>
           </argument>
         </arguments>
@@ -80,21 +139,15 @@ if (controlObject.object_index == objEasyControlCheryl) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Decrement timer
+            <string>///Spawn people
 
-remainingTime -= 1;
+if (instance_number(objPerson) &lt; maxPeople) {
+    xCoord = irandom(1024);
+    
+    instance_create(xCoord, 32, objPerson);
+}
 
 alarm[0] = 1 * room_speed;
-
-if (remainingTime = 30) {
-    draw_set_colour(c_maroon);
-} else if (remainingTime = 15) {
-    draw_set_colour(c_red);
-}
-
-if (remainingTime &lt; 0) {
-    scrEndGame();
-}
 </string>
           </argument>
         </arguments>
@@ -117,14 +170,32 @@ if (remainingTime &lt; 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Display timer
+            <string>///Draw score
 
-draw_set_font(fntTimer);
-draw_set_halign(fa_center);
-draw_set_color(color);
-draw_text(480, 96, remainingTime);
+draw_set_color(c_aqua);
+draw_set_halign(fa_right);
 
-draw_set_halign(fa_left);
+
+if (!isVersus) {
+    draw_text(960, 0, string(score));
+    
+    draw_set_halign(fa_left);
+}
+
+if (isVersus) {
+
+    draw_set_color(c_red);
+    with (objDevil) {
+        draw_text(960, 0, "Sonia: " + string(myScore));
+    }
+    
+    draw_set_color(c_navy);
+    draw_set_halign(fa_left);
+    
+    with (objAngel) {
+        draw_text(64, 0, "Cheryl: " + string(myScore));    
+    }
+}
 </string>
           </argument>
         </arguments>
