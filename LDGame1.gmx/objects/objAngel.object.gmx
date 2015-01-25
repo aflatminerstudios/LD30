@@ -43,6 +43,38 @@ trailTTL = 0.40*room_speed; // X*room_speed = X seconds for each frame to last
 
 
 alarm[0] = trailFreq;
+
+frozen = false;
+
+speedMult = 1;
+scoreMult = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Unfreeze
+
+frozen = false;
+
+image_speed = 12/room_speed;
 </string>
           </argument>
         </arguments>
@@ -105,8 +137,14 @@ if keyboard_check(vk_up)
 if keyboard_check(vk_down)
   vspeed += vyDelta;
 
-if(speed &gt; maxSpeed)
-  speed = maxSpeed;
+if(speed &gt; maxSpeed * speedMult)
+  speed = maxSpeed * speedMult;
+  
+if (frozen) {
+    speed = 0;
+    hspeed = 0;
+    vspeed = 0;
+}
 
 //Keep character on screen
 if (x &lt; 32) {
@@ -142,23 +180,28 @@ if (y &lt; 32) {
             <kind>1</kind>
             <string>/// Update sprite based on player input (right/arrows)
 
-var xAxisTotal = gamepad_axis_value(0, gp_axisrh);
-var yAxisTotal = gamepad_axis_value(0, gp_axisrv);
-
-if keyboard_check(vk_left)
-  xAxisTotal += -1;
-if keyboard_check(vk_right)
-  xAxisTotal += 1;
-if keyboard_check(vk_up)
-  yAxisTotal += -1;
-if keyboard_check(vk_down)
-  yAxisTotal += 1;
-
-
-var controlDir = point_direction(0, 0, xAxisTotal, yAxisTotal);
-var controlSpeed = point_distance(0, 0, xAxisTotal, yAxisTotal);
-controlDir = controlDir mod 360;
-
+if (!frozen) {
+    
+    var xAxisTotal = gamepad_axis_value(0, gp_axisrh);
+    var yAxisTotal = gamepad_axis_value(0, gp_axisrv);
+    
+    if keyboard_check(vk_left)
+      xAxisTotal += -1;
+    if keyboard_check(vk_right)
+      xAxisTotal += 1;
+    if keyboard_check(vk_up)
+      yAxisTotal += -1;
+    if keyboard_check(vk_down)
+      yAxisTotal += 1;
+    
+    
+    var controlDir = point_direction(0, 0, xAxisTotal, yAxisTotal);
+    var controlSpeed = point_distance(0, 0, xAxisTotal, yAxisTotal);
+    controlDir = controlDir mod 360;
+} else {
+    speed = 0;
+    var controlSpeed = 0;
+}
 if(speed &lt; 2 &amp;&amp; controlSpeed &lt; 0.25){
   sprite_index = sprAngelIdle;
 } else if(controlDir == 0){
@@ -175,6 +218,85 @@ if(speed &lt; 2 &amp;&amp; controlSpeed &lt; 0.25){
   sprite_index = sprAngelDown;
 } else if(controlDir &lt; 360){
   sprite_index = sprAngelRightDown;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objSoniaPowerup">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Stun player
+
+frozen = true;
+
+alarm[1] = freezeSeconds * room_speed;
+
+image_speed = 0;
+
+score -= 500 * multiplier;
+myScore -= 500 * multiplier * scoreMult;
+
+with (other) {
+    alarm[3] = 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objCherylPowerup">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Add to score and add vibration for powerup power
+
+with(other) {
+    alarm[0] = 1;
+    alarm[3] = -1;
+}
+
+show_debug_message("Collided with powerup");
+
+score += 1000 * multiplier;
+myScore += 1000 * multiplier * scoreMult;
+
+var whichSound = choose(sndPowerup1, sndPowerup2, sndPowerup3, sndPowerup4, sndPowerup5);
+
+audio_play_sound_on(sfxEmit, whichSound, false, 75);
+
+if (object_index == objAngel) {
+    gamepad_set_vibration(0,0,0.5);
+} else if (object_index == objDevil) {
+    gamepad_set_vibration(0,0.5,0);
 }
 </string>
           </argument>

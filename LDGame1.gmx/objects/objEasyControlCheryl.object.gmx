@@ -105,8 +105,8 @@ if (r &lt; 0.06) {
     var xCoord = irandom(1000) + 12;
     var yCoord = irandom(576) + 12;
     
-    var which = choose(objSpeedup, objDblPoints, objTime, 
-      objFreeze, objIncGood, objIncEvil, objIncRight, objGoodUp, objEvilDown);    
+    var which = choose(objCherylPercentInc, objCherylAllSoulsCorrect, objCherylFreeze,
+      objCherylSpeed, objCherylMoreTime, objCherylDoublePts);
 
     var powerup = instance_create(xCoord, yCoord, which);
     

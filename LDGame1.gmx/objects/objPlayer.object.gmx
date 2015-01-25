@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="4" ename="objPowerup">
+    <event eventtype="4" ename="objInstructionsControl">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Add to score and add vibration for powerup power
+            <string>/// Was powerup, keeping temporarily
+/// Add to score and add vibration for powerup power
 
 with(other) {
     alarm[0] = 1;
