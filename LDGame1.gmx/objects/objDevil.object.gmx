@@ -32,7 +32,8 @@ vyDelta = .6;
 
 friction = 0.3;
 
-gamepad_set_axis_deadzone(0, 0.10);
+var gamePadNum = scrOuyaPlayerGamepad(1);
+gamepad_set_axis_deadzone(gamePadNum, 0.10);
 
 image_speed = 12/room_speed;
 
@@ -124,8 +125,10 @@ alarm[0] = trailFreq;
             <kind>1</kind>
             <string>/// Move using wasd and controller 0's left stick
 
-hspeed += gamepad_axis_value(0, gp_axislh) * vxDelta *2;
-vspeed += gamepad_axis_value(0, gp_axislv) * vyDelta *2;
+var gamePadNum = scrOuyaPlayerGamepad(1);
+
+hspeed += gamepad_axis_value(gamePadNum, gp_axislh) * vxDelta *2;
+vspeed += gamepad_axis_value(gamePadNum, gp_axislv) * vyDelta *2;
 
 if (keyboard_check(ord("a")) || keyboard_check(ord("A")))
   hspeed += -vxDelta;
@@ -181,8 +184,10 @@ if (y &lt; 32) {
 
 if (!frozen) {
 
-    var xAxisTotal = gamepad_axis_value(0, gp_axislh);
-    var yAxisTotal = gamepad_axis_value(0, gp_axislv);
+    var gamePadNum = scrOuyaPlayerGamepad(1);
+
+    var xAxisTotal = gamepad_axis_value(gamePadNum, gp_axislh);
+    var yAxisTotal = gamepad_axis_value(gamePadNum, gp_axislv);
     
       
     if (keyboard_check(ord("a")) || keyboard_check(ord("A")))

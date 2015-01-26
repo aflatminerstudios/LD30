@@ -137,8 +137,10 @@ alarm[1] = room_speed/bgPosOffsetMoveSpeed;
             <kind>1</kind>
             <string>///Set Options using gamepad
 
-hVal = gamepad_axis_value(0, gp_axislh);
-vVal = gamepad_axis_value(0, gp_axislv);
+var gamePadNum = scrOuyaPlayerGamepad(1);
+
+hVal = gamepad_axis_value(gamePadNum, gp_axislh);
+vVal = gamepad_axis_value(gamePadNum, gp_axislv);
 
 if (useGamePad) {
 
@@ -164,7 +166,7 @@ if (useGamePad) {
 
 ///Check for gamepad button
 
-if (scrCheckController(0) == true)
+if (scrCheckController(gamePadNum) == true)
 {
    alarm[0] = 1;
 }

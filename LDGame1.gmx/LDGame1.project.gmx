@@ -170,6 +170,9 @@
     <script>scripts\scrSoulExit.gml</script>
     <script>scripts\scrCreateTrailSprite.gml</script>
     <script>scripts\scrSetupSound.gml</script>
+    <scripts name="Utilities">
+      <script>scripts\scrOuyaPlayerGamepad.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntGameOver</font>

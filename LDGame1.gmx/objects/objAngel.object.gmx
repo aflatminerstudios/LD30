@@ -34,7 +34,8 @@ friction = 0.3;
 
 image_speed = 12/room_speed;
 
-gamepad_set_axis_deadzone(0, 0.10);
+var gamePadNum = scrOuyaPlayerGamepad(1);
+gamepad_set_axis_deadzone(gamePadNum, 0.10);
 
 myScore = 0;
 
@@ -125,8 +126,10 @@ alarm[0] = trailFreq;
             <kind>1</kind>
             <string>/// Move using arrows and controller 0's right stick
 
-hspeed += gamepad_axis_value(0, gp_axisrh) * vxDelta *2;
-vspeed += gamepad_axis_value(0, gp_axisrv) * vyDelta *2;
+var gamePadNum = scrOuyaPlayerGamepad(1);
+
+hspeed += gamepad_axis_value(gamePadNum, gp_axisrh) * vxDelta *2;
+vspeed += gamepad_axis_value(gamePadNum, gp_axisrv) * vyDelta *2;
 
 if keyboard_check(vk_left)
   hspeed += -vxDelta;
@@ -181,9 +184,11 @@ if (y &lt; 32) {
             <string>/// Update sprite based on player input (right/arrows)
 
 if (!frozen) {
+
+    var gamePadNum = scrOuyaPlayerGamepad(1);
     
-    var xAxisTotal = gamepad_axis_value(0, gp_axisrh);
-    var yAxisTotal = gamepad_axis_value(0, gp_axisrv);
+    var xAxisTotal = gamepad_axis_value(gamePadNum, gp_axisrh);
+    var yAxisTotal = gamepad_axis_value(gamePadNum, gp_axisrv);
     
     if keyboard_check(vk_left)
       xAxisTotal += -1;

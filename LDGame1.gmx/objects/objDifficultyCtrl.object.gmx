@@ -317,9 +317,9 @@ if (selectedOption == optSFXVolume) {
         }
     }
     
-
-    hVal = gamepad_axis_value(0, gp_axislh);
-    vVal = gamepad_axis_value(0, gp_axislv);
+    var gamePadNum = scrOuyaPlayerGamepad(1);
+    hVal = gamepad_axis_value(gamePadNum, gp_axislh);
+    vVal = gamepad_axis_value(gamePadNum, gp_axislv);
     if (useGamePad) {
 
     if (hVal &gt; 0.5 &amp;&amp; hVal &gt; vVal) {
@@ -398,8 +398,9 @@ if (selectedOption == optSFXVolume) {
 
     
 } else {
-    hVal = gamepad_axis_value(0, gp_axislh);
-    vVal = gamepad_axis_value(0, gp_axislv);
+    var gamePadNum = scrOuyaPlayerGamepad(1);
+    hVal = gamepad_axis_value(gamePadNum, gp_axislh);
+    vVal = gamepad_axis_value(gamePadNum, gp_axislv);
     
     if (useGamePad) {
     
@@ -437,8 +438,8 @@ if (selectedOption == optSFXVolume) {
 }
 
 ///Check for gamepad button
-
-if (scrCheckController(0) == true)
+var gamePadNum = scrOuyaPlayerGamepad(1);
+if (scrCheckController(gamePadNum) == true)
 {
    alarm[0] = 1;
 }
