@@ -216,7 +216,7 @@ if (path_position == 1) {
 
     if (room == rmEZSonia) {
         instance_create(0, 0, objEasyControlSonia);
-        instance_create(508, 96, objTimer);
+        instance_create(512, 96, objTimer);
     }
 
     instance_create(x, y, objDevil);    

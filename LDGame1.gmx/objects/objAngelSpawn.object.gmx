@@ -221,7 +221,7 @@ if (path_position == 1) {
         instance_create(0, 0, objEasyControlCheryl);
     }
     
-    instance_create(480, 96, objTimer);
+    instance_create(512, 96, objTimer);
     instance_create(x, y, objAngel);    
     
 
