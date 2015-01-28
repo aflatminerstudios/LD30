@@ -137,6 +137,9 @@
     </sprites>
     <sprite>sprites\sprSlider</sprite>
     <sprite>sprites\sprSliderMark</sprite>
+    <sprite>sprites\sprMenuTile</sprite>
+    <sprite>sprites\sprGoalGate</sprite>
+    <sprite>sprites\sprBackGate</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -152,7 +155,10 @@
     <background>background\bgCheryl</background>
     <background>background\bgSonia</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\pathCheryl</path>
+    <path>paths\pathSonia</path>
+  </paths>
   <scripts name="scripts">
     <script>scripts\scrKillPerson.gml</script>
     <script>scripts\scrCreateGlobals.gml</script>
@@ -181,6 +187,7 @@
     <font>fonts\fntGameOverSmallMed</font>
     <font>fonts\fntGameOverBigMed</font>
     <font>fonts\fntMain</font>
+    <font>fonts\fntMenu</font>
     <font>fonts\fntDifficulty</font>
     <font>fonts\fntTimer</font>
     <font>fonts\fntScore</font>
@@ -201,6 +208,9 @@
       <object>objects\objTitleCtrlOld</object>
       <object>objects\objTitle</object>
       <object>objects\objTitleControl</object>
+      <object>objects\objTitleControl1P</object>
+      <object>objects\objTitleControl2P</object>
+      <object>objects\objTitleControlEZMode</object>
       <object>objects\objTitleOptionBox</object>
     </objects>
     <objects name="Game Over">
@@ -211,7 +221,9 @@
     <objects name="players">
       <object>objects\objPlayer</object>
       <object>objects\objAngel</object>
+      <object>objects\objAngelSpawn</object>
       <object>objects\objDevil</object>
+      <object>objects\objDevilSpawn</object>
     </objects>
     <objects name="powerups">
       <object>objects\objPowerup</object>
@@ -279,6 +291,9 @@
     <object>objects\objSpriteTrail</object>
     <object>objects\objEasyControlSonia</object>
     <object>objects\objEasyControlCheryl</object>
+    <object>objects\objMenuTile</object>
+    <object>objects\objGoalGate</object>
+    <object>objects\objBackGate</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmLogo</room>
@@ -293,7 +308,7 @@
     <room>rooms\rmEZSonia</room>
     <room>rooms\rmEZCheryl</room>
   </rooms>
-  <constants number="15">
+  <constants number="17">
     <constant name="GM_build_date">41879.9125321412</constant>
     <constant name="GM_version">'1.0.0.18'</constant>
     <constant name="middle">300</constant>
@@ -306,9 +321,11 @@
     <constant name="optSFXVolume">4</constant>
     <constant name="optMusicVolume">5</constant>
     <constant name="optStart">0</constant>
-    <constant name="optHowToPlay">1</constant>
-    <constant name="optOptions">2</constant>
-    <constant name="optCredits">3</constant>
+    <constant name="optHowToPlay">2</constant>
+    <constant name="optOptions">3</constant>
+    <constant name="optCredits">4</constant>
+    <constant name="opt1P">0</constant>
+    <constant name="opt2P">1</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

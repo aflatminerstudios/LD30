@@ -25,12 +25,40 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>remainingTime = totalTime;
+            <string>
+globalvar isVersus;
+isVersus = false;
 
-alarm[0] = 1 * room_speed;
-alarm[1] = 1;
-color = c_maroon;
-draw_set_colour(c_lime);
+selectedOption = optStart;
+
+useGamePad = true;
+
+//choiceBox = instance_create(512, 389, objTitleOptionBox);
+
+gate = instance_create(512,389, objGoalGate);
+
+cheryl = instance_create(200, 389, objAngel);
+
+sonia = instance_create(800, 389, objDevil);
+
+backGate = instance_create(1000,500, objBackGate);
+
+bgPosOffsetSize = 50;
+bgPosOffsetStep = 1;
+bgPosOffsetMoveSpeed = 15; //fps
+
+for(var i = 0; i &lt; bgPosOffsetSize/2; i++){
+    bgPosOffset[i] = i*bgPosOffsetStep;
+}
+
+for(var i = 0; i &lt; bgPosOffsetSize/2; i++){ 
+    bgPosOffset[i+bgPosOffsetSize/2] = bgPosOffsetSize/2*bgPosOffsetStep - i*bgPosOffsetStep;
+}
+
+bgPosOffsetIter = 0;
+bgPosBaseOffset = 0;
+
+alarm[1] = room_speed/bgPosOffsetMoveSpeed;
 </string>
           </argument>
         </arguments>
@@ -53,11 +81,12 @@ draw_set_colour(c_lime);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var controlObject = instance_find(objControl,0);
+            <string>background_y[1] = bgPosBaseOffset + bgPosOffset[bgPosOffsetIter];
 
-if (controlObject.object_index == objEasyControlCheryl) {
-    color = c_aqua;
-}
+bgPosOffsetIter++;
+bgPosOffsetIter = bgPosOffsetIter mod bgPosOffsetSize;
+
+alarm[1] = room_speed/bgPosOffsetMoveSpeed;
 </string>
           </argument>
         </arguments>
@@ -80,51 +109,19 @@ if (controlObject.object_index == objEasyControlCheryl) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Decrement timer
+            <string>if(selectedOption == opt1P){
+  /*audio_stop_sound(musTitleScreen);
+  room_goto(rmMain);*/
+  
+} else if (selectedOption == opt2P) {
 
-remainingTime -= 1;
-
-alarm[0] = 1 * room_speed;
-
-if (remainingTime = 30) {
-    draw_set_colour(c_maroon);
-} else if (remainingTime = 15) {
-    draw_set_colour(c_red);
+} else if(selectedOption == optHowToPlay){
+  room_goto(rmInstructions);
+} else if(selectedOption == optOptions){
+  room_goto(rmDifficulty);
+} else if(selectedOption == optCredits){
+  room_goto(rmCredits);
 }
-
-if (remainingTime &lt; 0) {
-    scrEndGame();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Display timer
-
-draw_set_font(fntTimer);
-draw_set_halign(fa_center);
-draw_set_color(color);
-draw_text(x, y, remainingTime);
-
-draw_set_halign(fa_left);
 </string>
           </argument>
         </arguments>

@@ -51,8 +51,6 @@ bgPosOffsetIter = 0;
 bgPosBaseOffset = 0;
 
 alarm[1] = room_speed/bgPosOffsetMoveSpeed;
-
-audio_play_sound_on(musicEmit,musTitleScreen,true,10);
 </string>
           </argument>
         </arguments>
@@ -104,26 +102,19 @@ alarm[1] = room_speed/bgPosOffsetMoveSpeed;
           <argument>
             <kind>1</kind>
             <string>if(selectedOption == opt1P){
-  /*audio_stop_sound(musTitleScreen);
-  room_goto(rmMain);*/
+  isVersus = true;
   
-  with (objTitleOptionBox) {
-    instance_destroy();
-  }
+  audio_stop_sound(musTitleScreen);
+  room_goto(rmMain);
   
-  instance_change(objTitleControl1P,true);
 } else if (selectedOption == opt2P) {
+
+} else if (selectedOption == optHowToPlay) {
   with (objTitleOptionBox) {
     instance_destroy();
   }
   
-  instance_change(objTitleControl2P,true);
-} else if(selectedOption == optHowToPlay){
-  room_goto(rmInstructions);
-} else if(selectedOption == optOptions){
-  room_goto(rmDifficulty);
-} else if(selectedOption == optCredits){
-  room_goto(rmCredits);
+  instance_change(objTitleControl,true);
 }
 </string>
           </argument>
@@ -149,20 +140,24 @@ alarm[1] = room_speed/bgPosOffsetMoveSpeed;
             <kind>1</kind>
             <string>///Set Options using gamepad
 
-var gamePadNum = scrOuyaPlayerGamepad(1);
-
-hVal = gamepad_axis_value(gamePadNum, gp_axislh);
-vVal = gamepad_axis_value(gamePadNum, gp_axislv);
+hVal = gamepad_axis_value(0, gp_axislh);
+vVal = gamepad_axis_value(0, gp_axislv);
 
 if (useGamePad) {
 
     if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
-        if (selectedOption != optCredits) {
+        if (selectedOption != optHowToPlay) {
             choiceBox.y += 43;
             selectedOption += 1;
+            if (selectedOption == optHowToPlay) {
+                choiceBox.y = 561;
+            }
         }
         useGamePad = false;    
     } else if (vVal &lt; -0.5 &amp;&amp; vVal &lt; hVal) {
+        if (selectedOption == optHowToPlay) {
+            choiceBox.y = 475;
+        }
         if (selectedOption != opt1P) {
             choiceBox.y -= 43;
             selectedOption -= 1;
@@ -178,7 +173,7 @@ if (useGamePad) {
 
 ///Check for gamepad button
 
-if (scrCheckController(gamePadNum) == true)
+if (scrCheckController(0) == true)
 {
    alarm[0] = 1;
 }
@@ -210,14 +205,21 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 
 draw_set_font(fntMenu);
+
+depth = 150;
+draw_sprite(sprMenuTile, 0, 462, 475);
+draw_text(462,389,"1 Player");
+draw_text(462,432,"2 Players");
+draw_text(462,475,"How to Play");
+draw_text(462,518,"Options");
+draw_text(462,561,"Credits");
+
 depth = 100;
 draw_sprite(sprMenuTile, 0, 512, 475);
 
-draw_text(512,389,"1 Player");
-draw_text(512,432,"2 Players");
-draw_text(512,475,"How to Play");
-draw_text(512,518,"Options");
-draw_text(512,561,"Credits");
+draw_text(512,389,"Versus");
+draw_text(512,432,"Co-op");
+draw_text(512,561,"Back");
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
@@ -245,10 +247,17 @@ draw_set_valign(fa_top);
             <kind>1</kind>
             <string>///Select Next Option
 
-if (selectedOption != optCredits) {
+
+
+if (selectedOption != optHowToPlay) {
     choiceBox.y += 43;
     selectedOption += 1;
+    
+    if (selectedOption == optHowToPlay) {
+        choiceBox.y = 561;
+    }
 }
+
 
 </string>
           </argument>
@@ -273,6 +282,11 @@ if (selectedOption != optCredits) {
           <argument>
             <kind>1</kind>
             <string>///Select Previous Option
+
+if (selectedOption == optHowToPlay) {
+    choiceBox.y = 475;
+}
+
 
 if (selectedOption != opt1P) {
     choiceBox.y -= 43;
@@ -303,6 +317,31 @@ if (selectedOption != opt1P) {
             <string>///Check for start button
 
 alarm[0] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="27">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Return to menu
+
+alarm[2] = 1;
 </string>
           </argument>
         </arguments>
