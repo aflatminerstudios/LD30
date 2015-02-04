@@ -139,6 +139,11 @@
     <sprite>sprites\sprSliderMark</sprite>
     <sprite>sprites\sprMenuTile</sprite>
     <sprite>sprites\sprGoalGate</sprite>
+    <sprites name="Words">
+      <sprite>sprites\sprGet</sprite>
+      <sprite>sprites\sprStart</sprite>
+      <sprite>sprites\sprReady</sprite>
+    </sprites>
     <sprite>sprites\sprBackGate</sprite>
   </sprites>
   <backgrounds name="background">
@@ -158,6 +163,9 @@
   <paths name="paths">
     <path>paths\pathCheryl</path>
     <path>paths\pathSonia</path>
+    <path>paths\pathCherylDup</path>
+    <path>paths\pathGet</path>
+    <path>paths\pathReady</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\scrKillPerson.gml</script>
@@ -294,6 +302,9 @@
     <object>objects\objMenuTile</object>
     <object>objects\objGoalGate</object>
     <object>objects\objBackGate</object>
+    <object>objects\objGet</object>
+    <object>objects\objReady</object>
+    <object>objects\objStart</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmLogo</room>

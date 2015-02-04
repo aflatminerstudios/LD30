@@ -47,6 +47,11 @@ frozen = false;
 
 speedMult = 1;
 scoreMult = 1;
+
+path_finished = false;
+
+t = 0;
+d = 110;
 </string>
           </argument>
         </arguments>
@@ -68,8 +73,30 @@ scoreMult = 1;
           <argument>
             <kind>1</kind>
             <string>///Start path
-path_start(pathSonia, maxSpeed, 0, true); 
+path_start(pathSonia, 0, 0, true); 
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -144,13 +171,18 @@ alarm[0] = trailFreq;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Change path speed, based on time
+            <string>///Set path speed, based on time
 
-var pos = path_position;
 
-var spd = (1.5 - path_position) * maxSpeed;
-
-path_speed = spd;
+if (path_finished != true) {
+    t += 1;
+    var tt = t/d;
+    var pos = 1 - path_position;
+    path_position = 1 - power(1 - (t/d),2);
+    
+} else {
+    path_speed= -1 * maxSpeed;
+}
 </string>
           </argument>
         </arguments>
@@ -212,17 +244,15 @@ if(speed &lt; 2 ){
             <kind>1</kind>
             <string>///Spawn at end of path
 
-if (path_position == 1) {
 
-    if (room == rmEZSonia) {
-        instance_create(0, 0, objEasyControlSonia);
-        instance_create(512, 96, objTimer);
-    }
-
-    instance_create(x, y, objDevil);    
-
-    instance_destroy();
+if (path_position &gt;= 0.98 &amp;&amp; path_finished != true) {
+    path_finished = true;
 }
+    
+if (path_finished == true &amp;&amp; path_position &lt; 0.98) {
+    path_speed = 0;
+}
+
 </string>
           </argument>
         </arguments>

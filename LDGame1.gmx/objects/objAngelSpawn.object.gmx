@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// Set up internal variables
 
+path_finished = false;
+
 vxDelta = .6;
 vyDelta = .6;
 
@@ -48,6 +50,9 @@ frozen = false;
 
 speedMult = 1;
 scoreMult = 1;
+
+t = 0;
+d = 110;
 </string>
           </argument>
         </arguments>
@@ -69,7 +74,53 @@ scoreMult = 1;
           <argument>
             <kind>1</kind>
             <string>///Start path
-path_start(pathCheryl, maxSpeed, 0, true); 
+path_start(pathCheryl, 0, 3, true); 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Start game
+
+if (room == rmMain) {
+    instance_create(0, 0, objControl);
+} else if (room == rmEZCheryl) {
+    instance_create(0, 0, objEasyControlCheryl);
+}
+
+instance_create(512, 96, objTimer);
+instance_create(x, y, objAngel);    
+
+with (objDevilSpawn) {
+
+    if (room == rmEZSonia) {
+        instance_create(0, 0, objEasyControlSonia);
+        instance_create(512, 96, objTimer);
+    }
+
+    instance_create(x, y, objDevil);    
+
+    instance_destroy();
+}
+
+instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -145,13 +196,18 @@ alarm[0] = trailFreq;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Change path speed, based on time
+            <string>///Set path speed, based on time
 
-var pos = path_position;
 
-var spd = (1.5 - path_position) * maxSpeed;
-
-path_speed = spd;
+if (path_finished != true) {
+    t += 1;
+    var tt = t/d;
+    var pos = 1 - path_position;
+    path_position = 1 - power(1 - (t/d),2);   //0 - 1 * (tt * tt * tt * tt - 1);    
+    
+} else {
+    path_speed= -1 * maxSpeed;
+}
 </string>
           </argument>
         </arguments>
@@ -174,22 +230,24 @@ path_speed = spd;
             <kind>1</kind>
             <string>/// Update sprite based on player input (right/arrows)
 
-if(speed &lt; 2){
-  sprite_index = sprAngelIdle;
-} else if(direction == 0){
-  sprite_index = sprAngelRightDown;
-} else if(direction &lt; 60){
-  sprite_index = sprAngelRightUp;
-} else if(direction &lt; 120){
-  sprite_index = sprAngelUp;
-} else if(direction &lt; 180){
-  sprite_index = sprAngelLeftUp;
-} else if(direction &lt; 240){
-  sprite_index = sprAngelLeftDown;
-} else if(direction &lt; 300){
-  sprite_index = sprAngelDown;
-} else if(direction &lt; 360){
-  sprite_index = sprAngelRightDown;
+if (path_finished  != true) {
+    if(path_speed &lt; 2){
+      sprite_index = sprAngelIdle;
+    } else if(direction == 0){
+      sprite_index = sprAngelRightDown;
+    } else if(direction &lt; 60){
+      sprite_index = sprAngelRightUp;
+    } else if(direction &lt; 120){
+      sprite_index = sprAngelUp;
+    } else if(direction &lt; 180){
+      sprite_index = sprAngelLeftUp;
+    } else if(direction &lt; 240){
+      sprite_index = sprAngelLeftDown;
+    } else if(direction &lt; 300){
+      sprite_index = sprAngelDown;
+    } else if(direction &lt; 360){
+      sprite_index = sprAngelRightDown;
+    }
 }
 </string>
           </argument>
@@ -213,20 +271,14 @@ if(speed &lt; 2){
             <kind>1</kind>
             <string>///Spawn at end of path
 
-if (path_position == 1) {
-    
-    if (room == rmMain) {
-        instance_create(0, 0, objControl);
-    } else if (room == rmEZCheryl) {
-        instance_create(0, 0, objEasyControlCheryl);
-    }
-    
-    instance_create(512, 96, objTimer);
-    instance_create(x, y, objAngel);    
-    
-
-    instance_destroy();
+if (path_position &gt;= 0.98 &amp;&amp; path_finished != true) {
+    path_finished = true;
 }
+    
+if (path_finished == true &amp;&amp; path_position &lt; 0.98) {
+    path_speed = 0;
+}
+
 </string>
           </argument>
         </arguments>
