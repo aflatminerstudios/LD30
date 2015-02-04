@@ -52,7 +52,8 @@ bgPosBaseOffset = 0;
 
 alarm[1] = room_speed/bgPosOffsetMoveSpeed;
 
-audio_play_sound_on(musicEmit,musTitleScreen,true,10);
+if (!audio_is_playing(musTitleScreen))
+  audio_play_sound_on(musicEmit,musTitleScreen,true,10);
 </string>
           </argument>
         </arguments>
@@ -209,6 +210,8 @@ if (scrCheckController(gamePadNum) == true)
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 draw_set_color(c_black);
+
+draw_set_colour(c_white);
 
 draw_set_font(fntMenu);
 depth = 100;

@@ -35,8 +35,12 @@ globalvar totalTime;
 globalvar musicEmit;
 globalvar sfxEmit;
 
+globalvar numGamePads;
+
 musicEmit = noone;
 sfxEmit = noone;
+
+numGamePads = 1;
 
 baseSoulSpeed = 2.5 * 60/room_speed;
 basePersonSpeed = 0.8 * 60/room_speed;

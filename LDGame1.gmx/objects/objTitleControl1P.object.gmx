@@ -101,10 +101,11 @@ alarm[1] = room_speed/bgPosOffsetMoveSpeed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(selectedOption == opt1P){
+            <string>/// Activate menu option
+if(selectedOption == opt1P){
   
   isVersus = false;
-  
+  numGamePads = 1;
   audio_stop_sound(musTitleScreen);
   room_goto(rmMain);
   
@@ -115,6 +116,7 @@ alarm[1] = room_speed/bgPosOffsetMoveSpeed;
   
   instance_change(objTitleControlEZMode,true);
 } else if (selectedOption == optHowToPlay) {
+  numGamePads = 1;
   with (objTitleOptionBox) {
     instance_destroy();
   }
@@ -145,34 +147,49 @@ alarm[1] = room_speed/bgPosOffsetMoveSpeed;
             <kind>1</kind>
             <string>///Set Options using gamepad
 
-hVal = gamepad_axis_value(0, gp_axislh);
 vVal = gamepad_axis_value(0, gp_axislv);
+var threshold = 0.5;
 
 if (useGamePad) {
-
-    if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
+    var threshold = 0.5;
+    var vFinal = 0;
+    
+    vVal = gamepad_axis_value(0, gp_axislv);
+    
+    if (vVal &gt;= threshold)
+      vFinal = 1.0;
+    if (vVal &lt;= -threshold)
+      vFinal = -1.0;
+      
+    if (vFinal &gt; 0.5) {
         if (selectedOption != optHowToPlay) {
-            choiceBox.y += 43;
+
             selectedOption += 1;
-            if (selectedOption == optHowToPlay) {
+            if (selectedOption == opt1P) {
+                choiceBox.y = 389;
+            } else if(selectedOption == opt2P) {
+                choiceBox.y = 432;
+            } else if(selectedOption == optHowToPlay) {
                 choiceBox.y = 561;
             }
         }
         useGamePad = false;    
-    } else if (vVal &lt; -0.5 &amp;&amp; vVal &lt; hVal) {
+    } else if (vFinal &lt; -0.5) {
         if (selectedOption != opt1P) {
-            choiceBox.y -= 43;
             selectedOption -= 1;
-            if (selectedOption == optHowToPlay) {
-                choiceBox.y = 475;
+            if (selectedOption == opt1P) {
+                choiceBox.y = 389;
+            } else if(selectedOption == opt2P) {
+                choiceBox.y = 432;
+            } else if(selectedOption == optHowToPlay) {
+                choiceBox.y = 561;
             }
-
         }
         useGamePad = false;    
     }
 
 } else {
-    if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
+    if (abs(vVal) &lt;= threshold){ 
         useGamePad = true;
     }
 }
@@ -211,6 +228,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 
 draw_set_font(fntMenu);
+draw_set_colour(c_white);
 
 depth = 150;
 draw_sprite(sprMenuTile, 0, 462, 475);

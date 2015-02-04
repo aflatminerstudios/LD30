@@ -101,14 +101,20 @@ alarm[1] = room_speed/bgPosOffsetMoveSpeed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(selectedOption == opt1P){
+            <string>/// Activate menu option
+if(selectedOption == opt1P){
   isVersus = true;
   
+  numGamePads = 2;
   audio_stop_sound(musTitleScreen);
   room_goto(rmMain);
   
 } else if (selectedOption == opt2P) {
-
+  isVersus = false;
+  numGamePads = 2;
+  audio_stop_sound(musTitleScreen);
+  room_goto(rmMain);
+  
 } else if (selectedOption == optHowToPlay) {
   with (objTitleOptionBox) {
     instance_destroy();
@@ -205,6 +211,7 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 
 draw_set_font(fntMenu);
+draw_set_colour(c_white);
 
 depth = 150;
 draw_sprite(sprMenuTile, 0, 462, 475);

@@ -126,10 +126,22 @@ alarm[0] = trailFreq;
             <kind>1</kind>
             <string>/// Move using arrows and controller 0's right stick
 
-var gamePadNum = scrOuyaPlayerGamepad(1);
+var gamePadNum;
+var hAxis;
+var vAxis;
 
-hspeed += gamepad_axis_value(gamePadNum, gp_axisrh) * vxDelta *2;
-vspeed += gamepad_axis_value(gamePadNum, gp_axisrv) * vyDelta *2;
+if(numGamePads == 1){
+  gamePadNum = scrOuyaPlayerGamepad(1);
+  hAxis = gp_axisrh;
+  vAxis = gp_axisrv;
+} else {
+  gamePadNum = scrOuyaPlayerGamepad(2);
+  hAxis = gp_axislh;
+  vAxis = gp_axislv;
+}
+
+hspeed += gamepad_axis_value(gamePadNum, hAxis) * vxDelta *2;
+vspeed += gamepad_axis_value(gamePadNum, vAxis) * vyDelta *2;
 
 if keyboard_check(vk_left)
   hspeed += -vxDelta;
@@ -181,14 +193,26 @@ if (y &lt; 32) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Update sprite based on player input (right/arrows)
+            <string>/// Update sprite based on player input (gamepad/arrows)
 
 if (!frozen) {
-
-    var gamePadNum = scrOuyaPlayerGamepad(1);
     
-    var xAxisTotal = gamepad_axis_value(gamePadNum, gp_axisrh);
-    var yAxisTotal = gamepad_axis_value(gamePadNum, gp_axisrv);
+    var gamePadNum;
+    var hAxis;
+    var vAxis;
+    if(numGamePads == 1){
+      gamePadNum = scrOuyaPlayerGamepad(1);
+      hAxis = gp_axisrh;
+      vAxis = gp_axisrv;
+    } else {
+      gamePadNum = scrOuyaPlayerGamepad(2);
+      hAxis = gp_axislh;
+      vAxis = gp_axislv;
+    }
+
+    
+    var xAxisTotal = gamepad_axis_value(gamePadNum, hAxis);
+    var yAxisTotal = gamepad_axis_value(gamePadNum, vAxis);
     
     if keyboard_check(vk_left)
       xAxisTotal += -1;
@@ -368,6 +392,33 @@ if (other.soulDirection == down) {
     
     gamepad_set_vibration(0,0,0.3);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+
+idleTime = 0;//1000;
+if(idleTime &gt; 3*room_speed)
+  draw_sprite_ext(sprRightStick, 0, x, y-50, 0.5, 0.5, 0, c_white, 1);
 </string>
           </argument>
         </arguments>
