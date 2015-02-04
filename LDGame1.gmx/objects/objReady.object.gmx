@@ -29,9 +29,9 @@
 
 path_finished = false;
 
-maxSpeed = 10;
+maxWordSpeed = 10;
 
-path_start(pathReady, maxSpeed, 3, true);
+path_start(pathReady, maxWordSpeed, 3, true);
 </string>
           </argument>
         </arguments>

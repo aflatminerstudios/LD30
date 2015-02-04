@@ -29,9 +29,9 @@
 
 path_finished = false;
 
-maxSpeed = 10;
+maxWordSpeed = 10;
 
-path_start(pathGet, maxSpeed, 3, true);
+path_start(pathGet, maxWordSpeed, 3, true);
 </string>
           </argument>
         </arguments>
@@ -82,11 +82,11 @@ instance_create(512, 300, objStart);
           <argument>
             <kind>1</kind>
             <string>///leave the screen
-speed = 5 * maxSpeed;
+speed = 5 * maxWordSpeed;
 direction = 180;
 
 with (objReady) {
-    speed = 5 * maxSpeed;
+    speed = 5 * maxWordSpeed;
     direction = 0;
 }
 
