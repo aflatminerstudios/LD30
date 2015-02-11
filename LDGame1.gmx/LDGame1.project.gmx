@@ -305,6 +305,7 @@
     <object>objects\objGet</object>
     <object>objects\objReady</object>
     <object>objects\objStart</object>
+    <object>objects\objSpecialKeyHandler</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmLogo</room>
