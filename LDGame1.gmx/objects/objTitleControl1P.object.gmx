@@ -231,7 +231,7 @@ draw_set_font(fntMenu);
 draw_set_colour(c_white);
 
 depth = 150;
-draw_sprite(sprMenuTile, 0, 462, 475);
+draw_sprite(sprMenuTile2, 0, 462, 475);
 draw_text(462,389,"1 Player");
 draw_text(462,432,"2 Players");
 draw_text(462,475,"How to Play");
@@ -239,7 +239,7 @@ draw_text(462,518,"Options");
 draw_text(462,561,"Credits");
 
 depth = 100;
-draw_sprite(sprMenuTile, 0, 512, 475);
+draw_sprite(sprMenuTile2, 0, 512, 475);
 
 draw_text(512,389,"Regular");
 draw_text(512,432,"Easy");

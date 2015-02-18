@@ -215,7 +215,7 @@ draw_set_colour(c_white);
 
 draw_set_font(fntMenu);
 depth = 100;
-draw_sprite(sprMenuTile, 0, 512, 475);
+draw_sprite(sprMenuTile2, 0, 512, 475);
 
 draw_text(512,389,"1 Player");
 draw_text(512,432,"2 Players");

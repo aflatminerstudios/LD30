@@ -138,6 +138,7 @@
     <sprite>sprites\sprSlider</sprite>
     <sprite>sprites\sprSliderMark</sprite>
     <sprite>sprites\sprMenuTile</sprite>
+    <sprite>sprites\sprMenuTile2</sprite>
     <sprite>sprites\sprGoalGate</sprite>
     <sprites name="Words">
       <sprite>sprites\sprGet</sprite>
