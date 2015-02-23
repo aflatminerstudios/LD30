@@ -275,9 +275,12 @@
     </objects>
     <object>objects\objAnvil</object>
     <objects name="instructions">
+      <object>objects\object85</object>
       <object>objects\objInstructionSonia</object>
+      <object>objects\objInstructions4</object>
       <object>objects\objIncRight</object>
       <object>objects\objInstructionsCheryl</object>
+      <object>objects\objInstructionsPersonWalking</object>
       <object>objects\objInstructionsPerson</object>
       <object>objects\objSoniaMotion</object>
       <object>objects\objCherylIdle</object>
@@ -286,7 +289,7 @@
       <object>objects\objInstructionsMult</object>
       <object>objects\objInstructionsRedSoul</object>
       <object>objects\objInstructionsBalloon</object>
-      <object>objects\objInstructions2Mult</object>
+      <object>objects\objInstructions5Mult</object>
     </objects>
     <object>objects\objDeadSoul</object>
     <object>objects\objSpeech</object>
@@ -295,6 +298,7 @@
     <object>objects\objRightStick</object>
     <object>objects\objControlsControl</object>
     <object>objects\objInstructionsControl</object>
+    <object>objects\object86</object>
     <object>objects\objChatterTest</object>
     <object>objects\objAFlatMinerLogo</object>
     <object>objects\objSpriteTrail</object>
@@ -311,9 +315,13 @@
   <rooms name="rooms">
     <room>rooms\rmLogo</room>
     <room>rooms\rmSoundTest</room>
+    <room>rooms\rmInstructions</room>
+    <room>rooms\rmInstructions2</room>
+    <room>rooms\rmInstructions3</room>
+    <room>rooms\rmInstructions4</room>
     <room>rooms\rmDifficulty</room>
     <room>rooms\rmTitle</room>
-    <room>rooms\rmInstructions</room>
+    <room>rooms\rmInstructionsOld</room>
     <room>rooms\rmMain</room>
     <room>rooms\rmGameOver</room>
     <room>rooms\rmControls</room>
