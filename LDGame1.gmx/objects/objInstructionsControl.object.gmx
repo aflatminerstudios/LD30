@@ -8,6 +8,65 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var target = rmTitle;
+switch (room) {
+
+    case rmInstructions:
+        target = rmInstructions2;
+        break;
+    case rmInstructions2:
+        target = rmInstructions3;    
+        break;
+    case rmInstructions3:
+        target = rmInstructions4;    
+        break;
+}
+
+room_goto(target);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -28,8 +87,73 @@
             <string>///Check for gamepad button, move to Controls
 if (scrCheckController(0) == true)
 {
-   room_goto(rmControls);
+   alarm[0] = 1;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>switch (room) {
+
+    case rmInstructions:
+        draw_set_halign(fa_center);
+        draw_set_color(c_black);
+        draw_text_ext(512, 100, "Help Cheryl and Sonia sort out the souls of the departed people in Citytown. The good souls        need to go up to heaven, and the bad ones        need to go down to hell.", 35, 600)
+        break;
+    
+    case rmInstructions2:
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_middle);
+        draw_set_color(c_black);    
+        draw_text_ext(512, 100, "When someone in town      kicks the bucket, they will spawn either        or        .", 35, 500);        
+        
+        draw_text_ext(512, 300, "If Cheryl touches either one, then it will start floating up. If Sonia touches one, then they will start falling down.", 35, 500);        
+        break;        
+    
+    case rmInstructions3:
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_middle);
+        draw_set_color(c_black);
+        draw_text_ext(235, 292, "Each time a soul gets turned around by Cheryl or Sonia, it gets a multiplier increasing its point value", 35, 350);        
+        draw_text_ext(789, 292, "Make extra sure those souls go to the right afterlife. If they don’t you’ll lose a lot more points!", 35, 350);
+        break;
+
+    case rmInstructions4:
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_middle);
+        draw_set_color(c_black);
+        draw_text_ext(512, 100, "Keep an eye out for special powerups! Some are for Cheryl, and some are for Sonia – they aren’t so great at sharing.", 35, 500)
+        
+        //Start at 256, +64 each time
+        draw_text(512, 256, "Doubles scoring for 10 seconds");
+        draw_text(512, 320, "Makes souls go the right direction");
+        draw_text(512, 384, "Freezes souls for 3 seconds");
+        draw_text(512, 448, "Doubles speed for 10 seconds");
+        draw_text(512, 512, "All new souls are one type for 5 seconds");
+        draw_text(512, 576, "Adds 10 seconds to time remaining");
+        break;    
+}
+
+        draw_set_halign(fa_left);
+        draw_set_valign(fa_top);
 </string>
           </argument>
         </arguments>
@@ -52,7 +176,7 @@ if (scrCheckController(0) == true)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(rmControls);
+            <string>alarm[0] = 1;
 </string>
           </argument>
         </arguments>
