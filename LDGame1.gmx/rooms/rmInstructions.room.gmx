@@ -51,13 +51,22 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="objInstructionSonia" x="608" y="384" name="inst_F7892200" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherylIdle" x="352" y="384" name="inst_D6F733E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLeftStick" x="352" y="480" name="inst_6ABDEC28" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objRightStick" x="616" y="476" name="inst_095B5AA1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionSonia" x="340" y="372" name="inst_F7892200" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherylIdle" x="612" y="372" name="inst_D6F733E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objLeftStick" x="344" y="452" name="inst_6ABDEC28" locked="0" code="" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
+    <instance objName="objRightStick" x="612" y="452" name="inst_095B5AA1" locked="0" code="" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
     <instance objName="objInstructionsControl" x="160" y="64" name="inst_818C7805" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objInstructionsSoul" x="416" y="192" name="inst_6E459DC4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objInstructionsRedSoul" x="500" y="220" name="inst_7288BFF8" locked="0" code="" scaleX="0.899999976158142" scaleY="0.899999976158142" colour="4294967295" rotation="0"/>
+    <instance objName="objMenuTile" x="512" y="190" name="inst_8ABACF2A" locked="0" code="" scaleX="3.20000004768372" scaleY="1" colour="2365587455" rotation="0"/>
+    <instance objName="objWKey" x="284" y="520" name="inst_1A9BCAEE" locked="0" code="" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
+    <instance objName="objAKey" x="324" y="520" name="inst_DD6368BA" locked="0" code="" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
+    <instance objName="objSKey" x="364" y="520" name="inst_33B29758" locked="0" code="" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
+    <instance objName="objDKey" x="404" y="520" name="inst_1DA98337" locked="0" code="" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
+    <instance objName="objLeftArrow" x="592" y="520" name="inst_E519221D" locked="0" code="" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
+    <instance objName="objRightArrow" x="672" y="520" name="inst_D44A1170" locked="0" code="" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
+    <instance objName="objDownArrow" x="632" y="520" name="inst_39BD53E8" locked="0" code="" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
+    <instance objName="objUpArrow" x="552" y="520" name="inst_2C1612A3" locked="0" code="" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

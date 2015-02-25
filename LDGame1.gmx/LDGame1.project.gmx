@@ -74,6 +74,19 @@
       <sprite>sprites\sprDevilRightDown</sprite>
       <sprite>sprites\sprDevilLeftDown</sprite>
     </sprites>
+    <sprites name="controls">
+      <sprite>sprites\sprLeftStick</sprite>
+      <sprite>sprites\sprRightStick</sprite>
+      <sprite>sprites\sprBlankKey</sprite>
+      <sprite>sprites\sprDownArrow</sprite>
+      <sprite>sprites\sprUpArrow</sprite>
+      <sprite>sprites\sprRightArrow</sprite>
+      <sprite>sprites\sprLeftArrow</sprite>
+      <sprite>sprites\sprDKey</sprite>
+      <sprite>sprites\sprSKey</sprite>
+      <sprite>sprites\sprAKey</sprite>
+      <sprite>sprites\sprWKey</sprite>
+    </sprites>
     <sprite>sprites\sprAFlatMinerLogo</sprite>
     <sprite>sprites\sprSpeech</sprite>
     <sprite>sprites\Powerup_Base</sprite>
@@ -130,8 +143,6 @@
       <sprite>sprites\sprZeppelins</sprite>
       <sprite>sprites\sprCat</sprite>
     </sprites>
-    <sprite>sprites\sprRightStick</sprite>
-    <sprite>sprites\sprLeftStick</sprite>
     <sprites name="Title">
       <sprite>sprites\sprTitleStart</sprite>
     </sprites>
@@ -155,6 +166,7 @@
     <background>background\bgControls</background>
     <background>background\bgCredits</background>
     <background>background\bgMain2x</background>
+    <background>background\bgRoad</background>
     <background>background\bgTitleForeground</background>
     <background>background\bgAFlatMinerLogo</background>
     <background>background\bgTitleMenu</background>
@@ -290,12 +302,23 @@
       <object>objects\objInstructionsRedSoul</object>
       <object>objects\objInstructionsBalloon</object>
       <object>objects\objInstructions5Mult</object>
+      <object>objects\objInstruction2Mult</object>
     </objects>
     <object>objects\objDeadSoul</object>
     <object>objects\objSpeech</object>
     <object>objects\objBalloons</object>
-    <object>objects\objLeftStick</object>
-    <object>objects\objRightStick</object>
+    <objects name="Controls">
+      <object>objects\objWKey</object>
+      <object>objects\objLeftArrow</object>
+      <object>objects\objRightArrow</object>
+      <object>objects\objDownArrow</object>
+      <object>objects\objUpArrow</object>
+      <object>objects\objDKey</object>
+      <object>objects\objSKey</object>
+      <object>objects\objAKey</object>
+      <object>objects\objLeftStick</object>
+      <object>objects\objRightStick</object>
+    </objects>
     <object>objects\objControlsControl</object>
     <object>objects\objInstructionsControl</object>
     <object>objects\object86</object>

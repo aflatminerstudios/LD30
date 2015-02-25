@@ -31,7 +31,7 @@
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="bgRoad" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -52,9 +52,25 @@
   </views>
   <instances>
     <instance objName="objInstructionsControl" x="0" y="32" name="inst_0E72B5A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objInstructionsPersonWalking" x="644" y="68" name="inst_25D5A8EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objInstructionsSoul" x="452" y="136" name="inst_C619CB07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objInstructionsRedSoul" x="560" y="132" name="inst_9E4E4693" locked="0" code="" scaleX="0.899999976158142" scaleY="0.899999976158142" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionsPersonWalking" x="644" y="118" name="inst_25D5A8EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionsSoul" x="452" y="186" name="inst_C619CB07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionsRedSoul" x="560" y="182" name="inst_9E4E4693" locked="0" code="" scaleX="0.899999976158142" scaleY="0.899999976158142" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionsDeath" x="432" y="300" name="inst_6161D135" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionsDeath" x="576" y="300" name="inst_6DC8ADB0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionsPerson" x="340" y="300" name="inst_DFFFD493" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionsPerson" x="500" y="300" name="inst_40B98A27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstruction2Mult" x="232" y="488" name="inst_F4CA95AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionsRedSoul" x="80" y="452" name="inst_D5239AAF" locked="0" code="sprite_index = sprEvilSoulUp;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionsRedSoul" x="208" y="500" name="inst_37086F6C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionsSoul" x="852" y="416" name="inst_606A1CBA" locked="0" code="sprite_index = sprGoodSoulDown;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionsSoul" x="956" y="364" name="inst_3D3FE076" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionSonia" x="204" y="408" name="inst_0510D59D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherylIdle" x="956" y="448" name="inst_0D31B22E" locked="0" code="sprite_index = sprAngelUp;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstructionSonia" x="72" y="400" name="inst_BEB814E7" locked="0" code="sprite_index = sprDevilDown;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objInstruction2Mult" x="972" y="340" name="inst_7782A4F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherylIdle" x="836" y="472" name="inst_62636DED" locked="0" code="sprite_index = sprAngelRightUp;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objMenuTile" x="512" y="144" name="inst_BB71CAD6" locked="0" code="" scaleX="2.5" scaleY="1" colour="2365587455" rotation="0"/>
+    <instance objName="objMenuTile" x="512" y="460" name="inst_3965E339" locked="0" code="" scaleX="2.5" scaleY="1" colour="2365587455" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

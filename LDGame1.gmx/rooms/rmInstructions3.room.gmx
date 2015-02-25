@@ -56,8 +56,8 @@
     <instance objName="objCherylIdle" x="512" y="192" name="inst_2DA8A167" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objInstructionsSoul" x="512" y="308" name="inst_97CCE778" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objInstructions5Mult" x="528" y="284" name="inst_FFE27F14" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objMenuTile" x="235" y="292" name="inst_4D18456F" locked="0" code="" scaleX="2" scaleY="1" colour="1694498815" rotation="0"/>
-    <instance objName="objMenuTile" x="789" y="292" name="inst_A0E196EE" locked="0" code="" scaleX="2" scaleY="1" colour="1694498815" rotation="0"/>
+    <instance objName="objMenuTile" x="235" y="292" name="inst_4D18456F" locked="0" code="" scaleX="2" scaleY="1" colour="2365587455" rotation="0"/>
+    <instance objName="objMenuTile" x="789" y="292" name="inst_A0E196EE" locked="0" code="" scaleX="2" scaleY="1" colour="2365587455" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
