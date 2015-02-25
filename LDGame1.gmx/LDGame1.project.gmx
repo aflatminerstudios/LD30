@@ -352,7 +352,7 @@
     <room>rooms\rmEZSonia</room>
     <room>rooms\rmEZCheryl</room>
   </rooms>
-  <constants number="17">
+  <constants number="21">
     <constant name="GM_build_date">41879.9125321412</constant>
     <constant name="GM_version">'1.0.0.18'</constant>
     <constant name="middle">300</constant>
@@ -365,11 +365,15 @@
     <constant name="optSFXVolume">4</constant>
     <constant name="optMusicVolume">5</constant>
     <constant name="optStart">0</constant>
-    <constant name="optHowToPlay">2</constant>
-    <constant name="optOptions">3</constant>
-    <constant name="optCredits">4</constant>
     <constant name="opt1P">0</constant>
-    <constant name="opt2P">1</constant>
+    <constant name="optHowToPlay">1</constant>
+    <constant name="optOptions">2</constant>
+    <constant name="optCredits">3</constant>
+    <constant name="opt2P">4</constant>
+    <constant name="optCoop">0</constant>
+    <constant name="optEasy">1</constant>
+    <constant name="optVersus">2</constant>
+    <constant name="optBack">3</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

@@ -273,6 +273,7 @@ if (path_finished  != true) {
 
 if (path_position &gt;= 0.98 &amp;&amp; path_finished != true) {
     path_finished = true;
+    alarm[2] = 1;
 }
     
 if (path_finished == true &amp;&amp; path_position &lt; 0.98) {

@@ -102,20 +102,26 @@ alarm[1] = room_speed/bgPosOffsetMoveSpeed;
           <argument>
             <kind>1</kind>
             <string>/// Activate menu option
-if(selectedOption == opt1P){
+if(selectedOption == optCoop){
   
   isVersus = false;
   numGamePads = 1;
   audio_stop_sound(musTitleScreen);
   room_goto(rmMain);
   
-} else if (selectedOption == opt2P) {
+} else if (selectedOption == optEasy) {
   with (objTitleOptionBox) {
     instance_destroy();
   }
-  
   instance_change(objTitleControlEZMode,true);
-} else if (selectedOption == optHowToPlay) {
+  
+} else if (selectedOption == optVersus) {
+  isVersus = true;
+  numGamePads = 1;
+  audio_stop_sound(musTitleScreen);
+  room_goto(rmMain);
+  
+} else if (selectedOption == optBack) {
   numGamePads = 1;
   with (objTitleOptionBox) {
     instance_destroy();
@@ -162,26 +168,30 @@ if (useGamePad) {
       vFinal = -1.0;
       
     if (vFinal &gt; 0.5) {
-        if (selectedOption != optHowToPlay) {
+        if (selectedOption != optBack) {
 
             selectedOption += 1;
-            if (selectedOption == opt1P) {
+            if (selectedOption == optCoop) {
                 choiceBox.y = 389;
-            } else if(selectedOption == opt2P) {
+            } else if(selectedOption == optEasy) {
                 choiceBox.y = 432;
-            } else if(selectedOption == optHowToPlay) {
+            } else if(selectedOption == optVersus) {
+                choiceBox.y = 475;
+            } else if(selectedOption == optBack) {
                 choiceBox.y = 561;
             }
         }
         useGamePad = false;    
     } else if (vFinal &lt; -0.5) {
-        if (selectedOption != opt1P) {
+        if (selectedOption != optCoop) {
             selectedOption -= 1;
-            if (selectedOption == opt1P) {
+            if (selectedOption == optCoop) {
                 choiceBox.y = 389;
-            } else if(selectedOption == opt2P) {
+            } else if(selectedOption == optEasy) {
                 choiceBox.y = 432;
-            } else if(selectedOption == optHowToPlay) {
+            } else if(selectedOption == optVersus) {
+                choiceBox.y = 475;
+            } else if(selectedOption == optBack) {
                 choiceBox.y = 561;
             }
         }
@@ -241,9 +251,10 @@ draw_text(462,561,"Credits");
 depth = 100;
 draw_sprite(sprMenuTile2, 0, 512, 475);
 
-draw_text(512,389,"Regular");
-draw_text(512,432,"Easy");
-draw_text(512,561,"Back");
+draw_text(512,389,"Co-op"); // opt1P
+draw_text(512,432,"Easy (1P)"); // optHow
+draw_text(512,475,"Versus (2P)"); // optOpt
+draw_text(512,561,"Back"); // opt
 
 
 draw_set_halign(fa_left);
@@ -273,12 +284,12 @@ draw_set_valign(fa_top);
             <string>///Select Next Option
 
 
-if (selectedOption != optHowToPlay) {
+if (selectedOption != optBack) {
     choiceBox.y += 43;
     selectedOption += 1;
 }
 
-if (selectedOption == optHowToPlay) {
+if (selectedOption == optBack) {
     choiceBox.y = 561;
 }
 
@@ -307,14 +318,16 @@ if (selectedOption == optHowToPlay) {
             <kind>1</kind>
             <string>///Select Previous Option
 
-if (selectedOption == optHowToPlay) {
-    choiceBox.y = 475;
-}
+
 
 
 if (selectedOption != opt1P) {
     choiceBox.y -= 43;
     selectedOption -= 1;
+}
+
+if (selectedOption == optVersus) {
+    choiceBox.y = 475;
 }
 </string>
           </argument>

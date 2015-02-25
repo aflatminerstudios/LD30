@@ -33,7 +33,11 @@ selectedOption = optStart;
 
 useGamePad = true;
 
-choiceBox = instance_create(512, 389, objTitleOptionBox);
+
+menuItemVertStart = 395;
+menuItemVertSpacing = 53;
+
+choiceBox = instance_create(512, menuItemVertStart, objTitleOptionBox);
 
 bgPosOffsetSize = 50;
 bgPosOffsetStep = 1;
@@ -104,20 +108,19 @@ alarm[1] = room_speed/bgPosOffsetMoveSpeed;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(selectedOption == opt1P){
+            <string>/// Activate menu option selected
+if(selectedOption == opt1P){
   /*audio_stop_sound(musTitleScreen);
   room_goto(rmMain);*/
   
   with (objTitleOptionBox) {
     instance_destroy();
   }
-  
   instance_change(objTitleControl1P,true);
 } else if (selectedOption == opt2P) {
   with (objTitleOptionBox) {
     instance_destroy();
   }
-  
   instance_change(objTitleControl2P,true);
 } else if(selectedOption == optHowToPlay){
   room_goto(rmInstructions);
@@ -159,13 +162,13 @@ if (useGamePad) {
 
     if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
         if (selectedOption != optCredits) {
-            choiceBox.y += 43;
+            choiceBox.y += menuItemVertSpacing;
             selectedOption += 1;
         }
         useGamePad = false;    
     } else if (vVal &lt; -0.5 &amp;&amp; vVal &lt; hVal) {
         if (selectedOption != opt1P) {
-            choiceBox.y -= 43;
+            choiceBox.y -= menuItemVertSpacing;
             selectedOption -= 1;
         }
         useGamePad = false;    
@@ -217,11 +220,13 @@ draw_set_font(fntMenu);
 depth = 100;
 draw_sprite(sprMenuTile2, 0, 512, 475);
 
-draw_text(512,389,"1 Player");
-draw_text(512,432,"2 Players");
-draw_text(512,475,"How to Play");
-draw_text(512,518,"Options");
-draw_text(512,561,"Credits");
+
+
+draw_text(512,menuItemVertStart, "Play");
+draw_text(512,menuItemVertStart + menuItemVertSpacing, "How to Play");
+draw_text(512,menuItemVertStart + menuItemVertSpacing*2, "Options");
+draw_text(512,menuItemVertStart + menuItemVertSpacing*3, "Credits");
+
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
@@ -250,7 +255,7 @@ draw_set_valign(fa_top);
             <string>///Select Next Option
 
 if (selectedOption != optCredits) {
-    choiceBox.y += 43;
+    choiceBox.y += menuItemVertSpacing;
     selectedOption += 1;
 }
 
@@ -279,7 +284,7 @@ if (selectedOption != optCredits) {
             <string>///Select Previous Option
 
 if (selectedOption != opt1P) {
-    choiceBox.y -= 43;
+    choiceBox.y -= menuItemVertSpacing;
     selectedOption -= 1;
 }
 </string>

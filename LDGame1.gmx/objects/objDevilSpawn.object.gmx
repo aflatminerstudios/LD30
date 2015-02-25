@@ -96,6 +96,37 @@ path_start(pathSonia, 0, 0, true);
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Start game
+
+if (room == rmEZSonia) {
+  instance_create(0, 0, objEasyControlSonia);
+  instance_create(512, 96, objTimer);
+}
+
+instance_create(x, y, objDevil);    
+
+instance_destroy();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string></string>
           </argument>
         </arguments>
@@ -247,6 +278,7 @@ if(speed &lt; 2 ){
 
 if (path_position &gt;= 0.98 &amp;&amp; path_finished != true) {
     path_finished = true;
+    alarm[2] = 1;
 }
     
 if (path_finished == true &amp;&amp; path_position &lt; 0.98) {
