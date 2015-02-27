@@ -184,6 +184,7 @@
     <script>scripts\scrKillPerson.gml</script>
     <script>scripts\scrCreateGlobals.gml</script>
     <script>scripts\scrEndGame.gml</script>
+    <script>scripts\scrAddLeadingZeros.gml</script>
     <script>scripts\scrRightExit.gml</script>
     <script>scripts\scrWrongExit.gml</script>
     <script>scripts\scrSetSFXVolume.gml</script>
@@ -237,7 +238,9 @@
     <objects name="Game Over">
       <object>objects\objGameOver</object>
       <object>objects\objGameOverCtrl</object>
+      <object>objects\objGameOverControlOld</object>
       <object>objects\objGameOverVersusCtrl</object>
+      <object>objects\objGameOverVersusCtrlOld</object>
     </objects>
     <objects name="players">
       <object>objects\objPlayer</object>
