@@ -172,6 +172,8 @@
     <background>background\bgTitleMenu</background>
     <background>background\bgCheryl</background>
     <background>background\bgSonia</background>
+    <background>background\bgOptions</background>
+    <background>background\bgFinalJudgement</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pathCheryl</path>

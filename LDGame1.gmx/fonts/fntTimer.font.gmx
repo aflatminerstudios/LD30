@@ -3,9 +3,12 @@
   <name>David</name>
   <size>36</size>
   <bold>0</bold>
+  <renderhq>0</renderhq>
   <italic>0</italic>
   <charset>1</charset>
   <aa>3</aa>
+  <includeTTF>0</includeTTF>
+  <TTFName></TTFName>
   <texgroups>
     <texgroup0>0</texgroup0>
   </texgroups>
@@ -19,10 +22,10 @@
     <glyph character="108" x="114" y="192" w="10" h="35" shift="13" offset="2"/>
     <glyph character="61" x="132" y="143" w="22" h="29" shift="29" offset="4"/>
     <glyph character="77" x="92" y="2" w="42" h="35" shift="43" offset="0"/>
+    <glyph character="122" x="24" y="143" w="19" h="35" shift="21" offset="1"/>
     <glyph character="56" x="236" y="143" w="17" h="35" shift="21" offset="2"/>
     <glyph character="35" x="451" y="96" w="20" h="35" shift="20" offset="0"/>
     <glyph character="115" x="415" y="143" w="15" h="35" shift="19" offset="2"/>
-    <glyph character="122" x="24" y="143" w="19" h="35" shift="21" offset="1"/>
     <glyph character="105" x="90" y="192" w="11" h="35" shift="13" offset="1"/>
     <glyph character="47" x="345" y="143" w="16" h="35" shift="16" offset="0"/>
     <glyph character="80" x="84" y="96" w="25" h="35" shift="27" offset="0"/>
@@ -31,12 +34,12 @@
     <glyph character="48" x="45" y="143" w="19" h="35" shift="21" offset="2"/>
     <glyph character="32" x="432" y="143" w="11" h="47" shift="11" offset="0"/>
     <glyph character="91" x="66" y="192" w="10" h="39" shift="12" offset="2"/>
-    <glyph character="57" x="274" y="143" w="17" h="35" shift="21" offset="2"/>
-    <glyph character="79" x="139" y="49" w="31" h="35" shift="35" offset="2"/>
-    <glyph character="97" x="473" y="96" w="20" h="35" shift="21" offset="2"/>
-    <glyph character="98" x="288" y="96" w="22" h="35" shift="24" offset="0"/>
-    <glyph character="107" x="238" y="96" w="23" h="35" shift="24" offset="1"/>
     <glyph character="114" x="398" y="143" w="15" h="35" shift="16" offset="1"/>
+    <glyph character="57" x="274" y="143" w="17" h="35" shift="21" offset="2"/>
+    <glyph character="98" x="288" y="96" w="22" h="35" shift="24" offset="0"/>
+    <glyph character="79" x="139" y="49" w="31" h="35" shift="35" offset="2"/>
+    <glyph character="107" x="238" y="96" w="23" h="35" shift="24" offset="1"/>
+    <glyph character="97" x="473" y="96" w="20" h="35" shift="21" offset="2"/>
     <glyph character="46" x="207" y="192" w="5" h="35" shift="12" offset="3"/>
     <glyph character="38" x="230" y="49" w="29" h="35" shift="31" offset="0"/>
     <glyph character="100" x="263" y="96" w="23" h="35" shift="24" offset="2"/>

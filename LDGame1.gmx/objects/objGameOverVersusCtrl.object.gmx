@@ -160,76 +160,88 @@ var work;
 
 var finalColor;
 var ratio = 0;
-
+/*
 if ((pctGoodCorrect - pctEvilCorrect) &gt; 0) {
     ratio = (pctGoodCorrect - pctEvilCorrect)/pctGoodCorrect;
 } else if ((pctGoodCorrect - pctEvilCorrect) &gt; 0){
     ratio = (pctEvilCorrect - pctGoodCorrect)/pctEvilCorrect;
-}
+}*/
+
+
+rating = (score * pctWrong * maxPeople * pctCorrect) / (totalTime * maxLife);
+goodRating = (angelScore * pctWrong * maxPeople * pctGoodCorrect) / (totalTime * maxLife);
+evilRating = (devilScore * pctWrong * maxPeople * pctEvilCorrect) / (totalTime * maxLife);
+
+ratio = (goodRating)/(evilRating);
+if (ratio &gt; 1)
+    ratio = 1 / ratio;
 
 if (ratio &lt;= 0.01) {
     finalColor = c_green;
-} else if ((pctGoodCorrect - pctEvilCorrect) &gt; 0) {
+} else if ((goodRating - evilRating) &gt; 0) {
     finalColor = c_aqua;
 } else {
     finalColor = c_red;
 }
 
+
     
 draw_set_font(fntGameOver);
 draw_set_halign(fa_center);
-
-draw_set_font(fntGameOverBig);
+draw_set_valign(fa_top);
+draw_set_font(fntGameOverBigMed);
+draw_set_color(finalColor);
 //draw_text(512, 100, "Score: " + string(score));
 if (angelScore == devilScore) {
-    draw_text(512, 100, "Draw!");
+    draw_text(512, 214, "Draw!");
 } else if (angelScore &gt; devilScore) {
-    draw_text(512, 100, "Cheryl Wins!");
+    draw_text(512, 214, "Cheryl Wins!");
 } else {
-    draw_text(512, 100, "Sonia Wins!");
+    draw_text(512, 214, "Sonia Wins!");
 }
 
 
-draw_set_font(fntGameOver);
-draw_text(844, 207, scrAddLeadingZeros(devilScore,6));
-draw_text(180, 207, scrAddLeadingZeros(angelScore,6));
+draw_set_font(fntGameOverMed);
+draw_set_color(c_red);
+
+draw_text(894, 214, devilScore);
+draw_set_color(c_aqua);
+draw_text(180, 214, angelScore);
 
 
 draw_set_color(finalColor);
 draw_set_font(fntGameOverMed)
-draw_text(512, 50, "Final Judgement");   
+//draw_text(512, 50, "Final Judgement");   
 draw_set_font(fntGameOver);
 
 draw_set_alpha(bottomTextAlpha);
 
 
 
+
 draw_set_font(fntGameOverMed);
 
+draw_set_font(fntGameOverSmallMed);
 draw_set_color(c_aqua);
-draw_text(180, 303, scrAddLeadingZeros(numberGoodRight,2) + "/");
-draw_text(180, 399, scrAddLeadingZeros(numberGoodWrong,2));
-draw_text(180, 495, scrAddLeadingZeros(pctGoodCorrect,2) + "%");
+draw_text(250, 419, scrAddLeadingZeros(numberGoodRight,2) + "/" + scrAddLeadingZeros(numberGoodRight + numberGoodWrong,2));
+draw_text(250, 459, scrAddLeadingZeros(floor(goodRating),2));
 
 draw_set_color(c_red);
-draw_text(844, 303, scrAddLeadingZeros(numberEvilRight,2) + "/");
-draw_text(844, 399, scrAddLeadingZeros(numberEvilWrong,2));
-draw_text(844, 495, scrAddLeadingZeros(pctEvilCorrect,2) + "%");
+draw_text(965, 419, scrAddLeadingZeros(numberEvilRight,2) + "/" + scrAddLeadingZeros(numberEvilRight + numberEvilWrong,2));
+draw_text(965, 459, scrAddLeadingZeros(floor(evilRating),2));
 
-draw_set_font(fntGameOverSmallMed);
 
 draw_set_color(c_green);
-draw_set_font(fntGameOverBigMed);
+draw_set_font(fntGameOverMed);
 
-draw_set_color(c_green)
-draw_text(512, 253, scrAddLeadingZeros(numberRight,2));
-draw_text(512, 372, scrAddLeadingZeros(numberWrong,2));
-draw_text(512, 491, scrAddLeadingZeros(pctCorrect,2) + "%");
+draw_set_color(finalColor)
+draw_text(512, 375, scrAddLeadingZeros(numberRight,2) + "/" + scrAddLeadingZeros(numberRight + numberWrong,2));
+draw_text(512, 485, scrAddLeadingZeros(floor(rating),2));
     
 draw_set_font(fntMain);
 draw_set_alpha(1);
 draw_set_halign(fa_left);
-
+draw_set_valign(fa_top);
 
 </string>
           </argument>

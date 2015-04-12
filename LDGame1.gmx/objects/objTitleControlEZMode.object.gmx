@@ -41,7 +41,7 @@ cheryl = instance_create(200, 389, objAngel);
 
 sonia = instance_create(800, 389, objDevil);
 
-backGate = instance_create(1000,500, objBackGate);
+backGate = instance_create(944,530, objBackGate);
 
 bgPosOffsetSize = 50;
 bgPosOffsetStep = 1;

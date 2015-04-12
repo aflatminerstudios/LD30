@@ -14,4 +14,3 @@ audio_emitter_gain(musicEmit, musicVolume);
 
 sfxEmit = audio_emitter_create();
 audio_emitter_gain(sfxEmit, sfxVolume);
-
