@@ -33,64 +33,64 @@ useGamePad = true;
 switch (totalTime) {
 
     case (60):
-        timeChoice.x = 450;
+        timeChoice.x = 478;
         break;
     
     case (120):
-        timeChoice.x = 600;
+        timeChoice.x = 610;
         break;
     
     case (180):
-        timeChoice.x = 750;
+        timeChoice.x = 742;
         break;
     
     case (500):
-        timeChoice.x = 900;
+        timeChoice.x = 874;
         break;        
 }
 
 switch (maxPeople) {
         
     case (12):
-        popChoice.x = 450;
+        popChoice.x = 478;
         break;
     
     case (20):
-        popChoice.x = 600;
+        popChoice.x = 610;
         break;
     
     case (50):
-        popChoice.x = 750;
+        popChoice.x = 742;
         break;        
 }        
 
 switch (maxLife) {
         
     case (15):
-        deathChoice.x = 450;
+        deathChoice.x = 478;
         break;
     
     case (10):
-        deathChoice.x = 600;
+        deathChoice.x = 610;
         break;
     
     case (7):
-        deathChoice.x = 750;
+        deathChoice.x = 742;
         break;        
 }        
 
 switch (pctWrong) {
         
     case (0.25):
-        workChoice.x = 450;
+        workChoice.x = 478;
         break;
     
     case (0.5):
-        workChoice.x = 600;
+        workChoice.x = 610;
         break;
     
     case (0.75):
-        workChoice.x = 750;
+        workChoice.x = 742;
         break;        
 }
 
@@ -469,16 +469,16 @@ if (scrCheckController(gamePadNum) == true)
 draw_set_colour(c_white);
 
 draw_set_font(fntDifficulty);
-
+/*
 draw_text(125, 100, "Number of Seconds");
 draw_text(125, 200, "Maximum Population");
 draw_text(125, 300, "Death Rate");
 draw_text(125, 400, "Workload");
 draw_text(125, 500, "SFX Volume");
 draw_text(125, 550, "Music Volume");
-
+*/
 draw_set_halign(fa_center);
-
+/*
 draw_text(450, 100, "60");
 draw_text(600, 100, "120");
 draw_text(750, 100, "180");
@@ -495,7 +495,7 @@ draw_text(750, 300, "high");
 draw_text(450, 400, "low");
 draw_text(600, 400, "med");
 draw_text(750, 400, "high");
-
+*/
 
 draw_set_halign(fa_left);
 </string>
@@ -522,10 +522,19 @@ draw_set_halign(fa_left);
             <kind>1</kind>
             <string>///Select Next Option
 
-if (selectedOption != optMusicVolume) {
-    optionChoice.y += 100;
+if (selectedOption == optSFXVolume) {
+    optionChoice.y += 50;
+    selectedOption += 1;
+} else if (selectedOption == optWorkload) {
+//    optionChoice.x -= 50;
+    optionChoice.y += 117;
+    selectedOption += 1;
+} else if (selectedOption &lt; optWorkload) {
+    optionChoice.y += 72;
     selectedOption += 1;
 }
+
+
 
 /*
 switch (selectedOption) {
@@ -569,7 +578,7 @@ if ((selectedOption != optSFXVolume) &amp;&amp; (selectedOption != optMusicVolum
     var box = scrIncreaseOption(selectedOption);
     
     if (box != noone) {
-        box.x += 150;
+        box.x += 132;
     }
 }
 </string>
@@ -596,8 +605,15 @@ if ((selectedOption != optSFXVolume) &amp;&amp; (selectedOption != optMusicVolum
             <kind>1</kind>
             <string>///Select Previous Option
 
-if (selectedOption != optTime) {
-    optionChoice.y -= 100;
+if (selectedOption == optSFXVolume) {
+    optionChoice.y -= 117;    
+    //optionChoice.x += 50;
+    selectedOption -= 1;
+} else if (selectedOption == optMusicVolume) {
+    optionChoice.y -= 50;
+    selectedOption -= 1;
+} else if (selectedOption != optTime) {
+    optionChoice.y -= 72;    
     selectedOption -= 1;
 }
 
@@ -647,7 +663,7 @@ if ((selectedOption != optSFXVolume) &amp;&amp; (selectedOption != optMusicVolum
     
     
     if (box != noone) {
-        box.x -= 150;
+        box.x -= 132;
     }
 }
 </string>
