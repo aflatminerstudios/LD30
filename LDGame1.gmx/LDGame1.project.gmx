@@ -157,6 +157,10 @@
       <sprite>sprites\sprReady</sprite>
     </sprites>
     <sprite>sprites\sprBackGate</sprite>
+    <sprite>sprites\sprSmallBG</sprite>
+    <sprite>sprites\sprFrame</sprite>
+    <sprite>sprites\sprCWSwirl</sprite>
+    <sprite>sprites\sprCCWSwirl</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
