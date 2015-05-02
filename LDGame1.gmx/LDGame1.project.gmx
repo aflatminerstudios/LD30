@@ -240,6 +240,7 @@
       <object>objects\objTitleControl2P</object>
       <object>objects\objTitleControlEZMode</object>
       <object>objects\objTitleOptionBox</object>
+      <object>objects\objGate</object>
     </objects>
     <objects name="Game Over">
       <object>objects\objGameOver</object>
