@@ -79,8 +79,8 @@ room_goto(rmEZCheryl);
             <kind>1</kind>
             <string>//Draw full gate
 
-draw_sprite(sprCWSwirl, 0, x, y);
-draw_sprite(sprCCWSwirl, 0, x, y);
+//draw_sprite(sprCWSwirl, 0, x, y);
+//draw_sprite(sprCCWSwirl, 0, x, y);
 draw_self();
 draw_sprite(sprFrame, 0, x, y);
 
