@@ -25,29 +25,32 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-globalvar isVersus;
-isVersus = false;
+            <string>background_x[1] = 65;
 
-selectedOption = optStart;
 
-useGamePad = true;
+bgPosOffsetSize = 60;
+bgPosOffsetStep = 1;
+bgPosOffsetMoveSpeed = 0;//room_speed; //fps
 
-//choiceBox = instance_create(512, 389, objTitleOptionBox);
+for(var i = 0; i &lt; bgPosOffsetSize; i++){
+    bgPosOffset[i] = i*bgPosOffsetStep;
+}
 
-gate = instance_create(512,400, objGate);
+for(var i = 0; i &lt; bgPosOffsetSize; i++){ 
+    bgPosOffset[i+bgPosOffsetSize] = bgPosOffsetSize*bgPosOffsetStep - i*bgPosOffsetStep;
+}
 
-cheryl = instance_create(800, 389, objAngel);
+bgPosOffsetIter = 0;
+bgPosBaseOffset = 0;
 
-sonia = instance_create(200, 389, objDevil);
-
-backGate = instance_create(944,530, objBackGate);
+if(bgPosOffsetMoveSpeed &gt; 0)
+  alarm[1] = room_speed/bgPosOffsetMoveSpeed;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
+    <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -64,53 +67,13 @@ backGate = instance_create(944,530, objBackGate);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(objGate) {
-  instance_destroy();
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Check for escape key
+            <string>background_y[1] = bgPosBaseOffset + bgPosOffset[bgPosOffsetIter];
 
-if(keyboard_check_pressed(vk_escape)){
+bgPosOffsetIter++;
+bgPosOffsetIter = bgPosOffsetIter mod (bgPosOffsetSize*2);
 
-  with (objPlayer) {
-      instance_destroy();
-  }
-  
-  with (objSpriteTrail) {
-      instance_destroy();
-  }
-  
-  with (objGoalGate) {
-      instance_destroy();
-  }
-  
-  with (objBackGate) {
-    instance_destroy();
-  }
-  
-  instance_change(objTitleControl1P,true);
-}
+if(bgPosOffsetMoveSpeed &gt; 0)
+  alarm[1] = room_speed/bgPosOffsetMoveSpeed;
 </string>
           </argument>
         </arguments>

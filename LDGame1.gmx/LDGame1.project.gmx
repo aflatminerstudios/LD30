@@ -236,6 +236,7 @@
       <object>objects\objTitleCtrlOld</object>
       <object>objects\objTitle</object>
       <object>objects\objTitleControl</object>
+      <object>objects\objTitleBgMover</object>
       <object>objects\objTitleControl1P</object>
       <object>objects\objTitleControl2P</object>
       <object>objects\objTitleControlEZMode</object>

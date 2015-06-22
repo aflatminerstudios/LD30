@@ -53,12 +53,19 @@ if(keyboard_check_pressed(ord("M"))) {
             <string>/// Escape key
 
 if(keyboard_check_pressed(vk_escape)){
-  if(room == rmLogo){
-  
-  } else if(room == rmGameOver){
-  
-  } else {
-    game_end();
+
+  switch(room){
+    case rmLogo:
+      room_goto(rmTitle);
+      break;
+      
+    case rmTitle:
+      // Button is handled by each submenu individually
+      break;
+
+    default:
+      room_goto(rmTitle);
+      break;
   }
 }
 </string>

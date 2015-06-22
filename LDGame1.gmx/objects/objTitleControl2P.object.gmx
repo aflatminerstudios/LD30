@@ -34,51 +34,6 @@ selectedOption = optStart;
 useGamePad = true;
 
 choiceBox = instance_create(512, 389, objTitleOptionBox);
-
-bgPosOffsetSize = 50;
-bgPosOffsetStep = 1;
-bgPosOffsetMoveSpeed = 15; //fps
-
-for(var i = 0; i &lt; bgPosOffsetSize/2; i++){
-    bgPosOffset[i] = i*bgPosOffsetStep;
-}
-
-for(var i = 0; i &lt; bgPosOffsetSize/2; i++){ 
-    bgPosOffset[i+bgPosOffsetSize/2] = bgPosOffsetSize/2*bgPosOffsetStep - i*bgPosOffsetStep;
-}
-
-bgPosOffsetIter = 0;
-bgPosBaseOffset = 0;
-
-alarm[1] = room_speed/bgPosOffsetMoveSpeed;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>background_y[1] = bgPosBaseOffset + bgPosOffset[bgPosOffsetIter];
-
-bgPosOffsetIter++;
-bgPosOffsetIter = bgPosOffsetIter mod bgPosOffsetSize;
-
-alarm[1] = room_speed/bgPosOffsetMoveSpeed;
 </string>
           </argument>
         </arguments>
