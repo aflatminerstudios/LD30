@@ -47,16 +47,38 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="Souls">
+      <sprites name="anvils">
+        <sprite>sprites\sprAnvil</sprite>
+        <sprite>sprites\sprWeight</sprite>
+        <sprite>sprites\sprOctopus</sprite>
+        <sprite>sprites\sprBallChain</sprite>
+        <sprite>sprites\sprDemon</sprite>
+      </sprites>
+      <sprites name="balloons">
+        <sprite>sprites\sprBalloons</sprite>
+        <sprite>sprites\sprBeanies</sprite>
+        <sprite>sprites\sprButterflies</sprite>
+        <sprite>sprites\sprBird</sprite>
+        <sprite>sprites\sprZeppelins</sprite>
+        <sprite>sprites\sprCat</sprite>
+      </sprites>
       <sprite>sprites\sprEvilSoulUp</sprite>
+      <sprite>sprites\sprEvilSoulDown</sprite>
       <sprite>sprites\sprGoodSoulUp</sprite>
       <sprite>sprites\sprGoodSoulDown</sprite>
-      <sprite>sprites\sprEvilSoulDown</sprite>
+      <sprite>sprites\sprMult2x</sprite>
+      <sprite>sprites\sprMult3x</sprite>
+      <sprite>sprites\sprMult4x</sprite>
+      <sprite>sprites\sprMult5x</sprite>
+      <sprite>sprites\sprSignEvilSoul</sprite>
+      <sprite>sprites\sprSignGoodSoul</sprite>
     </sprites>
     <sprites name="person">
       <sprite>sprites\sprPerson</sprite>
       <sprite>sprites\sprDeath2</sprite>
       <sprite>sprites\sprDeath3</sprite>
       <sprite>sprites\sprDeath1</sprite>
+      <sprite>sprites\sprSpeech</sprite>
     </sprites>
     <sprites name="players">
       <sprite>sprites\sprAngelDown</sprite>
@@ -87,16 +109,6 @@
       <sprite>sprites\sprAKey</sprite>
       <sprite>sprites\sprWKey</sprite>
     </sprites>
-    <sprite>sprites\sprAFlatMinerLogo</sprite>
-    <sprite>sprites\sprSpeech</sprite>
-    <sprite>sprites\Powerup_Base</sprite>
-    <sprite>sprites\sprGameOver</sprite>
-    <sprite>sprites\sprOptionBox</sprite>
-    <sprite>sprites\sprTitleMenuSelector</sprite>
-    <sprite>sprites\sprOptionChoice</sprite>
-    <sprite>sprites\sprMult2x</sprite>
-    <sprite>sprites\sprMult3x</sprite>
-    <sprite>sprites\sprMult4x</sprite>
     <sprites name="powerups">
       <sprites name="Cheryl">
         <sprite>sprites\sprCherylPercentInc</sprite>
@@ -126,41 +138,29 @@
       <sprite>sprites\sprIncEvil</sprite>
       <sprite>sprites\sprTime</sprite>
       <sprite>sprites\sprFreeze</sprite>
+      <sprite>sprites\Powerup_Base</sprite>
     </sprites>
-    <sprite>sprites\sprMult5x</sprite>
-    <sprites name="anvils">
-      <sprite>sprites\sprAnvil</sprite>
-      <sprite>sprites\sprWeight</sprite>
-      <sprite>sprites\sprOctopus</sprite>
-      <sprite>sprites\sprBallChain</sprite>
-      <sprite>sprites\sprDemon</sprite>
-    </sprites>
-    <sprites name="balloons">
-      <sprite>sprites\sprBalloons</sprite>
-      <sprite>sprites\sprBeanies</sprite>
-      <sprite>sprites\sprButterflies</sprite>
-      <sprite>sprites\sprBird</sprite>
-      <sprite>sprites\sprZeppelins</sprite>
-      <sprite>sprites\sprCat</sprite>
-    </sprites>
-    <sprites name="Title">
-      <sprite>sprites\sprTitleStart</sprite>
-    </sprites>
-    <sprite>sprites\sprSlider</sprite>
-    <sprite>sprites\sprSliderMark</sprite>
-    <sprite>sprites\sprMenuTile</sprite>
-    <sprite>sprites\sprMenuTile2</sprite>
-    <sprite>sprites\sprGoalGate</sprite>
     <sprites name="Words">
       <sprite>sprites\sprGet</sprite>
       <sprite>sprites\sprStart</sprite>
       <sprite>sprites\sprReady</sprite>
+      <sprite>sprites\sprGameOver</sprite>
     </sprites>
-    <sprite>sprites\sprBackGate</sprite>
-    <sprite>sprites\sprSmallBG</sprite>
-    <sprite>sprites\sprFrame</sprite>
-    <sprite>sprites\sprCWSwirl</sprite>
-    <sprite>sprites\sprCCWSwirl</sprite>
+    <sprites name="Menus">
+      <sprite>sprites\sprTitleMenuSelector</sprite>
+      <sprite>sprites\sprSlider</sprite>
+      <sprite>sprites\sprSliderMark</sprite>
+      <sprite>sprites\sprOptionBox</sprite>
+      <sprite>sprites\sprOptionChoice</sprite>
+      <sprite>sprites\sprCWSwirl</sprite>
+      <sprite>sprites\sprCCWSwirl</sprite>
+      <sprite>sprites\sprFrame</sprite>
+      <sprite>sprites\sprSmallBG</sprite>
+      <sprite>sprites\sprBackGate</sprite>
+      <sprite>sprites\sprMenuTile</sprite>
+      <sprite>sprites\sprMenuTile2</sprite>
+    </sprites>
+    <sprite>sprites\sprGoalGate</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -169,6 +169,7 @@
     <background>background\bgInstructions</background>
     <background>background\bgControls</background>
     <background>background\bgCredits</background>
+    <background>background\bgCredits2</background>
     <background>background\bgMain2x</background>
     <background>background\bgRoad</background>
     <background>background\bgTitleForeground</background>
@@ -204,8 +205,10 @@
     <script>scripts\scrSoulExit.gml</script>
     <script>scripts\scrCreateTrailSprite.gml</script>
     <script>scripts\scrSetupSound.gml</script>
+    <script>scripts\scrExitToTitle.gml</script>
     <scripts name="Utilities">
       <script>scripts\scrOuyaPlayerGamepad.gml</script>
+      <script>scripts\scrEndVibration.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -224,21 +227,20 @@
     <object>objects\objTimer</object>
     <object>objects\objControl</object>
     <objects name="souls">
+      <object>objects\objSoul</object>
       <object>objects\objEvilSoul</object>
       <object>objects\objGoodSoul</object>
-      <object>objects\objSoul</object>
       <object>objects\objSoulMultiplier</object>
+      <object>objects\objSignEvilSoul</object>
+      <object>objects\objSignGoodSoul</object>
     </objects>
     <objects name="people">
       <object>objects\objPerson</object>
     </objects>
-    <objects name="Title">
-      <object>objects\objTitleCtrlOld</object>
-      <object>objects\objTitle</object>
+    <objects name="Menus">
       <object>objects\objTitleControl</object>
       <object>objects\objTitleBgMover</object>
       <object>objects\objTitleControl1P</object>
-      <object>objects\objTitleControl2P</object>
       <object>objects\objTitleControlEZMode</object>
       <object>objects\objTitleOptionBox</object>
       <object>objects\objGate</object>
@@ -332,7 +334,6 @@
     </objects>
     <object>objects\objControlsControl</object>
     <object>objects\objInstructionsControl</object>
-    <object>objects\object86</object>
     <object>objects\objChatterTest</object>
     <object>objects\objAFlatMinerLogo</object>
     <object>objects\objSpriteTrail</object>
@@ -345,6 +346,7 @@
     <object>objects\objReady</object>
     <object>objects\objStart</object>
     <object>objects\objSpecialKeyHandler</object>
+    <object>objects\objControllerDebug</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmLogo</room>

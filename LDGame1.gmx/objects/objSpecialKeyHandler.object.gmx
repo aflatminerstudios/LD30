@@ -56,15 +56,23 @@ if(keyboard_check_pressed(vk_escape)){
 
   switch(room){
     case rmLogo:
-      room_goto(rmTitle);
+      scrExitToTitle(true);
       break;
       
     case rmTitle:
       // Button is handled by each submenu individually
       break;
+      
+    case rmDifficulty:
+    case rmInstructions:
+    case rmInstructions2:
+    case rmInstructions3:
+    case rmInstructions4:
+      scrExitToTitle(false);
+      break;
 
     default:
-      room_goto(rmTitle);
+      scrExitToTitle(true);
       break;
   }
 }

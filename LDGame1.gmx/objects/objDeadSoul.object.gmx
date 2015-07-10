@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Turn off vibration and kill instance
 
-gamepad_set_vibration(0,0,0);
+scrEndVibration();
 
 instance_destroy();
 </string>

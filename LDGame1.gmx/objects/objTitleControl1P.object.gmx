@@ -61,7 +61,6 @@ choiceBox = instance_create(512, 389, objTitleOptionBox);
 if(selectedOption == optCoop){
   
   isVersus = false;
-  numGamePads = 1;
   audio_stop_sound(musTitleScreen);
   room_goto(rmMain);
   
@@ -73,12 +72,10 @@ if(selectedOption == optCoop){
   
 } else if (selectedOption == optVersus) {
   isVersus = true;
-  numGamePads = 1;
   audio_stop_sound(musTitleScreen);
   room_goto(rmMain);
   
 } else if (selectedOption == optBack) {
-  numGamePads = 1;
   with (objTitleOptionBox) {
     instance_destroy();
   }
@@ -109,60 +106,45 @@ if(selectedOption == optCoop){
             <kind>1</kind>
             <string>///Set Options using gamepad
 
-vVal = gamepad_axis_value(0, gp_axislv);
-var threshold = 0.5;
+var gamePadNum = scrOuyaPlayerGamepad(1);
+
+hVal = gamepad_axis_value(gamePadNum, gp_axislh);
+vVal = gamepad_axis_value(gamePadNum, gp_axislv);
+
 
 if (useGamePad) {
-    var threshold = 0.5;
-    var vFinal = 0;
-    
-    vVal = gamepad_axis_value(0, gp_axislv);
-    
-    if (vVal &gt;= threshold)
-      vFinal = 1.0;
-    if (vVal &lt;= -threshold)
-      vFinal = -1.0;
-      
-    if (vFinal &gt; 0.5) {
-        if (selectedOption != optBack) {
 
+    if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
+        if (selectedOption != optBack) {
             selectedOption += 1;
-            if (selectedOption == optCoop) {
-                choiceBox.y = 389;
-            } else if(selectedOption == optEasy) {
-                choiceBox.y = 432;
-            } else if(selectedOption == optVersus) {
-                choiceBox.y = 475;
-            } else if(selectedOption == optBack) {
-                choiceBox.y = 561;
-            }
         }
         useGamePad = false;    
-    } else if (vFinal &lt; -0.5) {
+    } else if (vVal &lt; -0.5 &amp;&amp; vVal &lt; hVal) {
         if (selectedOption != optCoop) {
             selectedOption -= 1;
-            if (selectedOption == optCoop) {
-                choiceBox.y = 389;
-            } else if(selectedOption == optEasy) {
-                choiceBox.y = 432;
-            } else if(selectedOption == optVersus) {
-                choiceBox.y = 475;
-            } else if(selectedOption == optBack) {
-                choiceBox.y = 561;
-            }
         }
         useGamePad = false;    
     }
 
 } else {
-    if (abs(vVal) &lt;= threshold){ 
+    if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
         useGamePad = true;
     }
 }
 
+if (selectedOption == optCoop) {
+    choiceBox.y = 389;
+} else if(selectedOption == optEasy) {
+    choiceBox.y = 432;
+} else if(selectedOption == optVersus) {
+    choiceBox.y = 475;
+} else if(selectedOption == optBack) {
+    choiceBox.y = 561;
+}
+
 ///Check for gamepad button
 
-if (scrCheckController(0) == true)
+if (scrCheckController(gamePadNum) == true)
 {
    alarm[0] = 1;
 }
@@ -189,7 +171,6 @@ if (scrCheckController(0) == true)
             <string>/// Check for escape key
 
 if(keyboard_check_pressed(vk_escape)){
-  numGamePads = 1;
   with (objTitleOptionBox) {
     instance_destroy();
   }

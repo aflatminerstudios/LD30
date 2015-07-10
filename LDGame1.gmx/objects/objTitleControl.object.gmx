@@ -65,24 +65,24 @@ if (!audio_is_playing(musTitleScreen))
             <kind>1</kind>
             <string>/// Activate menu option selected
 if(selectedOption == opt1P){
-  /*audio_stop_sound(musTitleScreen);
-  room_goto(rmMain);*/
   
   with (objTitleOptionBox) {
     instance_destroy();
   }
   instance_change(objTitleControl1P,true);
-} else if (selectedOption == opt2P) {
-  with (objTitleOptionBox) {
-    instance_destroy();
-  }
-  instance_change(objTitleControl2P,true);
+  
 } else if(selectedOption == optHowToPlay){
+
   room_goto(rmInstructions);
+  
 } else if(selectedOption == optOptions){
+
   room_goto(rmDifficulty);
+  
 } else if(selectedOption == optCredits){
+
   room_goto(rmCredits);
+  
 }
 </string>
           </argument>

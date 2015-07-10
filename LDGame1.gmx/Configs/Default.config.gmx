@@ -19,7 +19,7 @@
     <option_android_arch_mipsr2>false</option_android_arch_mipsr2>
     <option_android_arch_mipsr2sf>false</option_android_arch_mipsr2sf>
     <option_android_arch_x86>True</option_android_arch_x86>
-    <option_android_build_version>4</option_android_build_version>
+    <option_android_build_version>7</option_android_build_version>
     <option_android_color_depth>0</option_android_color_depth>
     <option_android_display_name>Soul Shepherds</option_android_display_name>
     <option_android_flurry_enable>0</option_android_flurry_enable>
@@ -51,7 +51,7 @@
     <option_android_package_company>aflatminer</option_android_package_company>
     <option_android_package_domain>com</option_android_package_domain>
     <option_android_package_product>SoulShepherds</option_android_package_product>
-    <option_android_permission_flags>8</option_android_permission_flags>
+    <option_android_permission_flags>0</option_android_permission_flags>
     <option_android_pocketchange_enable>0</option_android_pocketchange_enable>
     <option_android_pocketchange_id></option_android_pocketchange_id>
     <option_android_pocketchange_test_enable>0</option_android_pocketchange_test_enable>
@@ -66,7 +66,7 @@
     <option_audioGroupCount>1</option_audioGroupCount>
     <option_author>AFlat Miner</option_author>
     <option_backimage>nil</option_backimage>
-    <option_borderless>false</option_borderless>
+    <option_borderless>False</option_borderless>
     <option_changed>false</option_changed>
     <option_changeresolution>false</option_changeresolution>
     <option_closeesc>true</option_closeesc>
@@ -105,7 +105,7 @@
     <option_html5_interpolate>-1</option_html5_interpolate>
     <option_html5_jsprepend></option_html5_jsprepend>
     <option_html5_loadingbar>-1</option_html5_loadingbar>
-    <option_html5_localrunalert>true</option_html5_localrunalert>
+    <option_html5_localrunalert>True</option_html5_localrunalert>
     <option_html5_outputdebugtoconsole>False</option_html5_outputdebugtoconsole>
     <option_html5_outputname>index.html</option_html5_outputname>
     <option_html5_scale>-1</option_html5_scale>

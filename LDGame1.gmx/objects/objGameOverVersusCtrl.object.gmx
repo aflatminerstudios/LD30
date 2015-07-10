@@ -33,8 +33,7 @@ alarm[0] = 0.5 * room_speed;
 var snd = audio_play_sound(sndGameOver, 100, true);
 audio_sound_gain(snd, 0.3, 0);
 
-gamepad_set_vibration(0,0,0);
-
+scrEndVibration();
 </string>
           </argument>
         </arguments>

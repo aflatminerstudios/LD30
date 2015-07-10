@@ -59,14 +59,11 @@ choiceBox = instance_create(512, 389, objTitleOptionBox);
             <string>/// Activate menu option
 if(selectedOption == opt1P){
   isVersus = true;
-  
-  numGamePads = 2;
   audio_stop_sound(musTitleScreen);
   room_goto(rmMain);
   
 } else if (selectedOption == opt2P) {
   isVersus = false;
-  numGamePads = 2;
   audio_stop_sound(musTitleScreen);
   room_goto(rmMain);
   
@@ -101,8 +98,10 @@ if(selectedOption == opt1P){
             <kind>1</kind>
             <string>///Set Options using gamepad
 
-hVal = gamepad_axis_value(0, gp_axislh);
-vVal = gamepad_axis_value(0, gp_axislv);
+var gamePadNum = scrOuyaPlayerGamepad(1);
+
+hVal = gamepad_axis_value(gamePadNum, gp_axislh);
+vVal = gamepad_axis_value(gamePadNum, gp_axislv);
 
 if (useGamePad) {
 
@@ -134,7 +133,7 @@ if (useGamePad) {
 
 ///Check for gamepad button
 
-if (scrCheckController(0) == true)
+if (scrCheckController(gamePadNum) == true)
 {
    alarm[0] = 1;
 }

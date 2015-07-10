@@ -53,6 +53,7 @@
   <instances>
     <instance objName="objAFlatMinerLogo" x="64" y="32" name="inst_46575EDD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpecialKeyHandler" x="96" y="32" name="inst_3CDD6490" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objControllerDebug" x="32" y="32" name="inst_CD4D059D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

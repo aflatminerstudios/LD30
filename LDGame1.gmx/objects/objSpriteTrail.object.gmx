@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Set up variables
 
+// Use scrCreateTrailSprite to create trails
 
 blendColor = c_blue;
 

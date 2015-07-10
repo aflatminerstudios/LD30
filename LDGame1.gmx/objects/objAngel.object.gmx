@@ -130,15 +130,10 @@ var gamePadNum;
 var hAxis;
 var vAxis;
 
-if(numGamePads == 1){
-  gamePadNum = scrOuyaPlayerGamepad(1);
-  hAxis = gp_axisrh;
-  vAxis = gp_axisrv;
-} else {
-  gamePadNum = scrOuyaPlayerGamepad(2);
-  hAxis = gp_axislh;
-  vAxis = gp_axislv;
-}
+
+gamePadNum = scrOuyaPlayerGamepad(1);
+hAxis = gp_axisrh;
+vAxis = gp_axisrv;
 
 hspeed += gamepad_axis_value(gamePadNum, hAxis) * vxDelta *2;
 vspeed += gamepad_axis_value(gamePadNum, vAxis) * vyDelta *2;
@@ -200,15 +195,10 @@ if (!frozen) {
     var gamePadNum;
     var hAxis;
     var vAxis;
-    if(numGamePads == 1){
-      gamePadNum = scrOuyaPlayerGamepad(1);
-      hAxis = gp_axisrh;
-      vAxis = gp_axisrv;
-    } else {
-      gamePadNum = scrOuyaPlayerGamepad(2);
-      hAxis = gp_axislh;
-      vAxis = gp_axislv;
-    }
+    
+    gamePadNum = scrOuyaPlayerGamepad(1);
+    hAxis = gp_axisrh;
+    vAxis = gp_axisrv;
 
     
     var xAxisTotal = gamepad_axis_value(gamePadNum, hAxis);

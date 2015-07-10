@@ -4,6 +4,8 @@ with (objPowerup) {
     alarm[1] = 1;
 }
 
+audio_stop_all();
+
 var whichSound = choose(sndGameOver1,sndGameOver2,
   sndGameOver3,sndGameOver4,sndGameOver5,sndGameOver6,sndGameOver7);
 
@@ -26,12 +28,10 @@ if (!isVersus) {
     }
 }
 
-gamepad_set_vibration(0,0,0);
 
 with (objControl) {
     alarm[3] = 2;
 }
 
 audio_stop_sound(sndMusic);
-gamepad_set_vibration(0,0,0);
-gamepad_set_vibration(1,0,0);
+scrEndVibration();
