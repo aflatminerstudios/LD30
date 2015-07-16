@@ -169,7 +169,6 @@
     <background>background\bgInstructions</background>
     <background>background\bgControls</background>
     <background>background\bgCredits</background>
-    <background>background\bgCredits2</background>
     <background>background\bgMain2x</background>
     <background>background\bgRoad</background>
     <background>background\bgTitleForeground</background>
@@ -243,6 +242,7 @@
       <object>objects\objTitleControl1P</object>
       <object>objects\objTitleControlEZMode</object>
       <object>objects\objTitleOptionBox</object>
+      <object>objects\objMenuTile</object>
       <object>objects\objGate</object>
     </objects>
     <objects name="Game Over">
@@ -339,7 +339,6 @@
     <object>objects\objSpriteTrail</object>
     <object>objects\objEasyControlSonia</object>
     <object>objects\objEasyControlCheryl</object>
-    <object>objects\objMenuTile</object>
     <object>objects\objGoalGate</object>
     <object>objects\objBackGate</object>
     <object>objects\objGet</object>

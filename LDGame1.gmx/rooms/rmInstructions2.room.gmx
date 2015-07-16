@@ -53,7 +53,9 @@
   <instances>
     <instance objName="objInstructionsControl" x="0" y="32" name="inst_0E72B5A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objInstructionsPersonWalking" x="644" y="118" name="inst_25D5A8EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objInstructionsSoul" x="452" y="186" name="inst_C619CB07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objMenuTile" x="512" y="144" name="inst_BB71CAD6" locked="0" code="" scaleX="2.5" scaleY="1" colour="2365587455" rotation="0"/>
+    <instance objName="objMenuTile" x="512" y="460" name="inst_3965E339" locked="0" code="" scaleX="2.5" scaleY="1" colour="2365587455" rotation="0"/>
+    <instance objName="objInstructionsSoul" x="472" y="186" name="inst_C619CB07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objInstructionsRedSoul" x="560" y="182" name="inst_9E4E4693" locked="0" code="" scaleX="0.899999976158142" scaleY="0.899999976158142" colour="4294967295" rotation="0"/>
     <instance objName="objInstructionsDeath" x="432" y="300" name="inst_6161D135" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objInstructionsDeath" x="576" y="300" name="inst_6DC8ADB0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -69,8 +71,6 @@
     <instance objName="objInstructionSonia" x="72" y="400" name="inst_BEB814E7" locked="0" code="sprite_index = sprDevilDown;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objInstruction2Mult" x="972" y="340" name="inst_7782A4F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCherylIdle" x="836" y="472" name="inst_62636DED" locked="0" code="sprite_index = sprAngelRightUp;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objMenuTile" x="512" y="144" name="inst_BB71CAD6" locked="0" code="" scaleX="2.5" scaleY="1" colour="2365587455" rotation="0"/>
-    <instance objName="objMenuTile" x="512" y="460" name="inst_3965E339" locked="0" code="" scaleX="2.5" scaleY="1" colour="2365587455" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

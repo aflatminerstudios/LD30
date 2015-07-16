@@ -114,16 +114,18 @@ if (scrCheckController(0) == true)
             <string>switch (room) {
 
     case rmInstructions:
+        draw_set_font(fntMenu);
         draw_set_halign(fa_center);
         draw_set_color(c_black);
         draw_text_ext(512, 100, "Help Cheryl and Sonia sort out the souls of the departed people in Citytown. The good souls        need to go up to heaven, and the bad ones        need to go down to hell.", 35, 600)
         break;
     
     case rmInstructions2:
+        draw_set_font(fntMenu);
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
         draw_set_color(c_black);    
-        draw_text_ext(512, 150, "When someone in town      kicks the bucket, they will spawn either        or        ", 35, 500);                
+        draw_text_ext(512, 150, "When someone in town      kicks the bucket, they will spawn either# or ", 35, 500);                
         draw_text_ext(512, 450, "If Cheryl touches one, then it will start floating up. If Sonia touches one, then it will start falling down.", 35, 500);        
 
         //80,452
@@ -148,6 +150,7 @@ if (scrCheckController(0) == true)
         break;        
     
     case rmInstructions3:
+        draw_set_font(fntMenu);
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
         draw_set_color(c_black);
@@ -156,6 +159,7 @@ if (scrCheckController(0) == true)
         break;
 
     case rmInstructions4:
+        draw_set_font(fntMenu);
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
         draw_set_color(c_black);
