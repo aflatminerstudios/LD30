@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>
+sliderDelay = 0.1;
+
 selectedOption = optTime;
 
 useGamePad = true;
@@ -302,146 +304,438 @@ if (sfxSlider.curValue == 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set Options
+            <string>///Set vertical options using gamepad analog
 
+var gamePadNum = scrOuyaPlayerGamepad(1);
+hVal = gamepad_axis_value(gamePadNum, gp_axislh);
+vVal = gamepad_axis_value(gamePadNum, gp_axislv);
 
-if (selectedOption == optSFXVolume) {
-    if (keyboard_check(vk_left)) {
-        if (alarm[1] &lt;= 0) {
-            alarm[1] = 0.25 * room_speed;
-        }
-    }
-    if (keyboard_check(vk_right)) {
-        if (alarm[2] &lt;= 0) {
-            alarm[2] = 0.25 * room_speed;
-        }
-    }
-    
-    var gamePadNum = scrOuyaPlayerGamepad(1);
-    hVal = gamepad_axis_value(gamePadNum, gp_axislh);
-    vVal = gamepad_axis_value(gamePadNum, gp_axislv);
-    if (useGamePad) {
-
-    if (hVal &gt; 0.5 &amp;&amp; hVal &gt; vVal) {
-        if (alarm[2] &lt;= 0) {
-            alarm[2] = 0.25 * room_speed;
-        }
-    } else if (hVal &lt; -0.5 &amp;&amp; hVal &lt; vVal) {
-        if (alarm[1] &lt;= 0) {
-            alarm[1] = 0.25 * room_speed;
-        }
-    } else if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
+if (useGamePad) {
+    if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
         if (selectedOption != optMusicVolume) {
-            optionChoice.y += 100;
             selectedOption += 1;
         }
         useGamePad = false;    
     } else if (vVal &lt; -0.5 &amp;&amp; vVal &lt; hVal) {
         if (selectedOption != optTime) {
-            optionChoice.y -= 100;
             selectedOption -= 1;
         }
         useGamePad = false;    
     }
 
-    } else {
-        if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
-            useGamePad = true;
-        }
-    }
-                
-
-
-} else if (selectedOption == optMusicVolume) {
-    if (keyboard_check(vk_left)) {
-        if (alarm[3] &lt;= 0) {
-            alarm[3] = 0.25 * room_speed;
-        }
-    }
-    if (keyboard_check(vk_right)) {
-        if (alarm[4] &lt;= 0) {
-            alarm[4] = 0.25 * room_speed;
-        }
-    }
-
-        hVal = gamepad_axis_value(0, gp_axislh);
-    vVal = gamepad_axis_value(0, gp_axislv);
-    if (useGamePad) {
-
-    if (hVal &gt; 0.5 &amp;&amp; hVal &gt; vVal) {
-        if (alarm[4] &lt;= 0) {
-            alarm[4] = 0.25 * room_speed;
-        }
-    } else if (hVal &lt; -0.5 &amp;&amp; hVal &lt; vVal) {
-        if (alarm[3] &lt;= 0) {
-            alarm[3] = 0.25 * room_speed;
-        }
-    } else if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
-        if (selectedOption != optMusicVolume) {
-            optionChoice.y += 100;
-            selectedOption += 1;
-        }
-        useGamePad = false;    
-    } else if (vVal &lt; -0.5 &amp;&amp; vVal &lt; hVal) {
-        if (selectedOption != optTime) {
-            optionChoice.y -= 100;
-            selectedOption -= 1;
-        }
-        useGamePad = false;    
-    }
-
-    } else {
-        if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
-            useGamePad = true;
-        }
-    }
-
-    
 } else {
+    if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
+        useGamePad = true;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set horizontal options using gamepad analog
+
+if (selectedOption != optSFXVolume &amp;&amp; selectedOption != optMusicVolume) {
+
     var gamePadNum = scrOuyaPlayerGamepad(1);
     hVal = gamepad_axis_value(gamePadNum, gp_axislh);
     vVal = gamepad_axis_value(gamePadNum, gp_axislv);
-    
     if (useGamePad) {
-    
         if (hVal &gt; 0.5 &amp;&amp; hVal &gt; vVal) {
             var box = scrIncreaseOption(selectedOption);
             if (box != noone) {
-                box.x += 150;
+                box.x += 132;
             }        
             useGamePad = false;
         } else if (hVal &lt; -0.5 &amp;&amp; hVal &lt; vVal) {
             var box = scrDecreaseOption(selectedOption);
             if (box != noone) {
-                box.x -= 150;
-            }
-            useGamePad = false;    
-        } else if (vVal &gt; 0.5 &amp;&amp; vVal &gt; hVal) {
-            if (selectedOption != optMusicVolume) {
-                optionChoice.y += 100;
-                selectedOption += 1;
-            }
-            useGamePad = false;    
-        } else if (vVal &lt; -0.5 &amp;&amp; vVal &lt; hVal) {
-            if (selectedOption != optTime) {
-                optionChoice.y -= 100;
-                selectedOption -= 1;
+                box.x -= 132;
             }
             useGamePad = false;    
         }
-    
     } else {
         if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
             useGamePad = true;
         }
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set horizontal options using gamepad dpad
 
-///Check for gamepad button
+if (selectedOption != optSFXVolume &amp;&amp; selectedOption != optMusicVolume) {
+
+    var gamePadNum = scrOuyaPlayerGamepad(1);
+
+    if (gamepad_button_check_pressed(gamePadNum, gp_padr)) {
+        var box = scrIncreaseOption(selectedOption);
+        if (box != noone) {
+            box.x += 132;
+        }
+    } else if (gamepad_button_check_pressed(gamePadNum, gp_padl)) {
+        var box = scrDecreaseOption(selectedOption);
+        if (box != noone) {
+            box.x -= 132;
+        }    
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set horizontal options using keyboard
+
+if (selectedOption != optSFXVolume &amp;&amp; selectedOption != optMusicVolume) {
+
+    if (keyboard_check_pressed(vk_right)) {
+        var box = scrIncreaseOption(selectedOption);
+        if (box != noone) {
+            box.x += 132;
+        }
+    } else if (keyboard_check_pressed(vk_left)) {
+        var box = scrDecreaseOption(selectedOption);
+        if (box != noone) {
+            box.x -= 132;
+        }    
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set vertical options using gamepad dpad
+
 var gamePadNum = scrOuyaPlayerGamepad(1);
-if (scrCheckController(gamePadNum) == true)
+
+if (gamepad_button_check_pressed(gamePadNum, gp_padd)) {
+    if (selectedOption != optMusicVolume) {
+        selectedOption += 1;
+    }   
+} else if (gamepad_button_check_pressed(gamePadNum, gp_padu)) {
+    if (selectedOption != optTime) {
+        selectedOption -= 1;
+    }   
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set vertical options via keyboard
+
+if(keyboard_check_pressed(vk_up)){
+  if (selectedOption != optTime) {
+      selectedOption -= 1;
+  }
+  
+} else if(keyboard_check_pressed(vk_down)){
+  if (selectedOption != optMusicVolume) {
+      selectedOption += 1;
+  }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Update selector position (vertical)
+
+if (selectedOption == optTime) {
+    optionChoice.y = 162;
+} else if(selectedOption == optPop) {
+    optionChoice.y = 234;
+} else if(selectedOption == optDeath) {
+    optionChoice.y = 306;
+} else if(selectedOption == optWorkload) {
+    optionChoice.y = 378;
+} else if(selectedOption == optSFXVolume) {
+    optionChoice.y = 497;
+} else if(selectedOption == optMusicVolume) {
+    optionChoice.y = 545;
+} else {
+    optionChoice.y = 162;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check for any gamepad button
+
+var gamePadNum = scrOuyaPlayerGamepad(1);
+
+if (scrCheckController(gamePadNum))
 {
    alarm[0] = 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check for Enter, Space, or Esc keyboard button
+
+if (keyboard_check_pressed(vk_space) || 
+    keyboard_check_pressed(vk_enter) ||
+    keyboard_check_pressed(vk_escape))
+{
+   alarm[0] = 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// SFX Volume slider
+
+if (selectedOption == optSFXVolume) {
+
+    if (keyboard_check(vk_left)) {
+        if (alarm[1] &lt;= 0) {
+            alarm[1] = sliderDelay * room_speed;
+        }
+    }
+    if (keyboard_check(vk_right)) {
+        if (alarm[2] &lt;= 0) {
+            alarm[2] = sliderDelay * room_speed;
+        }
+    }
+    
+    var gamePadNum = scrOuyaPlayerGamepad(1);
+    hVal = gamepad_axis_value(gamePadNum, gp_axislh);
+    vVal = gamepad_axis_value(gamePadNum, gp_axislv);
+    if (useGamePad) {
+        if (hVal &gt; 0.5 &amp;&amp; hVal &gt; vVal) {
+            if (alarm[2] &lt;= 0) {
+                alarm[2] = sliderDelay * room_speed;
+            }
+        } else if (hVal &lt; -0.5 &amp;&amp; hVal &lt; vVal) {
+            if (alarm[1] &lt;= 0) {
+                alarm[1] = sliderDelay * room_speed;
+            }
+        }
+    } else {
+        if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
+            useGamePad = true;
+        }
+    }
+    
+    if (gamepad_button_check_pressed(gamePadNum, gp_padl)) {
+        if (alarm[1] &lt;= 0) {
+            alarm[1] = sliderDelay * room_speed;
+        }
+    }
+    if (gamepad_button_check_pressed(gamePadNum, gp_padr)) {
+        if (alarm[2] &lt;= 0) {
+            alarm[2] = sliderDelay * room_speed;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Music Volume slider
+
+if (selectedOption == optMusicVolume) {
+
+    if (keyboard_check(vk_left)) {
+        if (alarm[3] &lt;= 0) {
+            alarm[3] = sliderDelay * room_speed;
+        }
+    }
+    if (keyboard_check(vk_right)) {
+        if (alarm[4] &lt;= 0) {
+            alarm[4] = sliderDelay * room_speed;
+        }
+    }
+    
+    var gamePadNum = scrOuyaPlayerGamepad(1);
+    hVal = gamepad_axis_value(gamePadNum, gp_axislh);
+    vVal = gamepad_axis_value(gamePadNum, gp_axislv);
+    if (useGamePad) {
+        if (hVal &gt; 0.5 &amp;&amp; hVal &gt; vVal) {
+            if (alarm[4] &lt;= 0) {
+                alarm[4] = sliderDelay * room_speed;
+            }
+        } else if (hVal &lt; -0.5 &amp;&amp; hVal &lt; vVal) {
+            if (alarm[3] &lt;= 0) {
+                alarm[3] = sliderDelay * room_speed;
+            }
+        }
+    } else {
+        if (abs(hVal) &lt; 0.25 &amp;&amp; abs(vVal) &lt; 0.25){ 
+            useGamePad = true;
+        }
+    }
+    
+    if (gamepad_button_check_pressed(gamePadNum, gp_padl)) {
+        if (alarm[3] &lt;= 0) {
+            alarm[3] = sliderDelay * room_speed;
+        }
+    }
+    if (gamepad_button_check_pressed(gamePadNum, gp_padr)) {
+        if (alarm[4] &lt;= 0) {
+            alarm[4] = sliderDelay * room_speed;
+        }
+    }
 }
 </string>
           </argument>
@@ -498,224 +792,6 @@ draw_text(750, 400, "high");
 */
 
 draw_set_halign(fa_left);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="40">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Select Next Option
-
-if (selectedOption == optSFXVolume) {
-    optionChoice.y += 50;
-    selectedOption += 1;
-} else if (selectedOption == optWorkload) {
-//    optionChoice.x -= 50;
-    optionChoice.y += 117;
-    selectedOption += 1;
-} else if (selectedOption &lt; optWorkload) {
-    optionChoice.y += 72;
-    selectedOption += 1;
-}
-
-
-
-/*
-switch (selectedOption) {
-    case (optTime): 
-        selectedOption = optPop;
-        break;
-    
-    case (optPop):
-        selectedOption = optDeath;
-        break;
-        
-    case (optDeath):
-        selectedOption = optWorkload;
-        break;
-}*/
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="39">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Select next choice
-
-if ((selectedOption != optSFXVolume) &amp;&amp; (selectedOption != optMusicVolume)) {
-    var box = scrIncreaseOption(selectedOption);
-    
-    if (box != noone) {
-        box.x += 132;
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="38">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Select Previous Option
-
-if (selectedOption == optSFXVolume) {
-    optionChoice.y -= 117;    
-    //optionChoice.x += 50;
-    selectedOption -= 1;
-} else if (selectedOption == optMusicVolume) {
-    optionChoice.y -= 50;
-    selectedOption -= 1;
-} else if (selectedOption != optTime) {
-    optionChoice.y -= 72;    
-    selectedOption -= 1;
-}
-
-/*
-
-switch (selectedOption) {
-    
-    case (optPop):
-        selectedOption = optTime;
-        break;
-        
-    case (optDeath):
-        selectedOption = optDeath;
-        break;
-    
-    case (optWorkload):
-        selectedOption = optDeath;
-        break;
-}*/
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="37">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Select previous choice
-
-
-if ((selectedOption != optSFXVolume) &amp;&amp; (selectedOption != optMusicVolume)) {
-    var box = scrDecreaseOption(selectedOption);
-    
-    
-    if (box != noone) {
-        box.x -= 132;
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Check for start button
-
-alarm[0] = 1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Check for start button
-
-alarm[0] = 1;
 </string>
           </argument>
         </arguments>

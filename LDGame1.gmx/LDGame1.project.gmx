@@ -161,6 +161,7 @@
       <sprite>sprites\sprMenuTile2</sprite>
     </sprites>
     <sprite>sprites\sprGoalGate</sprite>
+    <sprite>sprites\sprOverscanOverlay</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -290,7 +291,7 @@
       <object>objects\objGoodUp</object>
       <object>objects\objEvilDown</object>
     </objects>
-    <objects name="difficulty">
+    <objects name="Options/Difficulty">
       <object>objects\objDifficultyCtrl</object>
       <object>objects\objDifficultyCtrlCopy</object>
       <object>objects\objOptionBox</object>
@@ -346,6 +347,7 @@
     <object>objects\objStart</object>
     <object>objects\objSpecialKeyHandler</object>
     <object>objects\objControllerDebug</object>
+    <object>objects\objOverscanOverlay</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmLogo</room>

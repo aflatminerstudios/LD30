@@ -217,6 +217,8 @@ keyboardStatus += "#Last Character: " + string(keyboard_lastchar);
 if(showStatusOnScreen) {
   var fullStatus = gamePad1Status + "##" + keyboardStatus;
   draw_set_font(-1); // Use default font (-1)
+  draw_set_halign(fa_left);
+  draw_set_valign(fa_top);
   draw_text_colour(x-1, y-1, fullStatus, c_white, c_white, c_white, c_white, 1);
   draw_text_colour(x+1, y+1, fullStatus, c_white, c_white, c_white, c_white, 1);
   draw_text_colour(x-1, y+1, fullStatus, c_white, c_white, c_white, c_white, 1);

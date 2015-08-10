@@ -177,24 +177,9 @@ draw_set_halign(fa_right);
 
 
 if (!isVersus) {
-    draw_text(960, 0, string(score));
+    draw_text(924, 30, string(score));
     
     draw_set_halign(fa_left);
-}
-
-if (isVersus) {
-
-    draw_set_color(c_red);
-    with (objDevil) {
-        draw_text(960, 0, "Sonia: " + string(myScore));
-    }
-    
-    draw_set_color(c_navy);
-    draw_set_halign(fa_left);
-    
-    with (objAngel) {
-        draw_text(64, 0, "Cheryl: " + string(myScore));    
-    }
 }
 </string>
           </argument>

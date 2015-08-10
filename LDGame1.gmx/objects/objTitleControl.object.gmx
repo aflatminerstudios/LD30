@@ -34,7 +34,7 @@ selectedOption = optStart;
 useGamePad = true;
 
 
-menuItemVertStart = 395;
+menuItemVertStart = 375;
 menuItemVertSpacing = 53;
 
 choiceBox = instance_create(512, menuItemVertStart, objTitleOptionBox);
@@ -106,7 +106,7 @@ if(selectedOption == opt1P){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set Options using gamepad
+            <string>///Set Options using gamepad analog
 
 var gamePadNum = scrOuyaPlayerGamepad(1);
 
@@ -135,9 +135,128 @@ if (useGamePad) {
     }
 }
 
-///Check for gamepad button
 
-if (scrCheckController(gamePadNum) == true)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set option using gamepad dpad
+
+var gamePadNum = scrOuyaPlayerGamepad(1);
+
+if (gamepad_button_check_pressed(gamePadNum, gp_padd)) {
+    if (selectedOption != optCredits) {
+        choiceBox.y += menuItemVertSpacing;
+        selectedOption += 1;
+    }   
+} else if (gamepad_button_check_pressed(gamePadNum, gp_padu)) {
+    if (selectedOption != opt1P) {
+        choiceBox.y -= menuItemVertSpacing;
+        selectedOption -= 1;
+    }   
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set option using keyboard
+
+keyboard_check_pressed(vk_down)
+
+if (keyboard_check_pressed(vk_down)) {
+    if (selectedOption != optCredits) {
+        choiceBox.y += menuItemVertSpacing;
+        selectedOption += 1;
+    }   
+} else if (keyboard_check_pressed(vk_up)) {
+    if (selectedOption != opt1P) {
+        choiceBox.y -= menuItemVertSpacing;
+        selectedOption -= 1;
+    }   
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check for "OK" gamepad button (X360 A or OUYA O)
+
+var gamePadNum = scrOuyaPlayerGamepad(1);
+
+if (gamepad_button_check_pressed(gamePadNum, gp_face1))
+{
+   alarm[0] = 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check for "OK" keyboard button (Space or Enter)
+
+if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 {
    alarm[0] = 1;
 }
@@ -173,7 +292,7 @@ draw_set_colour(c_white);
 
 draw_set_font(fntMenu);
 depth = 100;
-draw_sprite(sprMenuTile2, 0, 512, 475);
+draw_sprite(sprMenuTile2, 0, 512, 455);
 
 
 
@@ -185,88 +304,6 @@ draw_text(512,menuItemVertStart + menuItemVertSpacing*3, "Credits");
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="40">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Select Next Option
-
-if (selectedOption != optCredits) {
-    choiceBox.y += menuItemVertSpacing;
-    selectedOption += 1;
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="38">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Select Previous Option
-
-if (selectedOption != opt1P) {
-    choiceBox.y -= menuItemVertSpacing;
-    selectedOption -= 1;
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Check for start button
-
-alarm[0] = 1;
 </string>
           </argument>
         </arguments>
@@ -291,31 +328,6 @@ alarm[0] = 1;
             <kind>1</kind>
             <string>/// Exit the program
 game_end();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Check for start button
-
-alarm[0] = 1;
 </string>
           </argument>
         </arguments>

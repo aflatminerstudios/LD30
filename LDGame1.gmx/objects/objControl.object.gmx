@@ -179,28 +179,29 @@ alarm[0] = 1 * room_speed;
             <kind>1</kind>
             <string>///Draw score
 
-draw_set_color(c_navy);
-draw_set_halign(fa_right);
+
 
 
 if (!isVersus) {
-    draw_text(960, 0, string(score));
+    draw_set_color(c_navy);
+    draw_set_halign(fa_right);
+    draw_text(924, 30, string(score));
     
-    draw_set_halign(fa_left);
+    //draw_set_halign(fa_left);
 }
 
 if (isVersus) {
-
+    draw_set_halign(fa_right);
     draw_set_color(c_red);
     with (objDevil) {
-        draw_text(960, 0, "Sonia: " + string(myScore));
+        draw_text(924, 30, "Sonia: " + string(myScore));
     }
     
     draw_set_color(c_navy);
     draw_set_halign(fa_left);
     
     with (objAngel) {
-        draw_text(64, 0, "Cheryl: " + string(myScore));    
+        draw_text(100, 30, "Cheryl: " + string(myScore));    
     }
 }
 </string>

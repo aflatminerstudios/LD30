@@ -3,8 +3,8 @@
   <caption></caption>
   <width>1024</width>
   <height>600</height>
-  <vsnap>4</vsnap>
-  <hsnap>4</hsnap>
+  <vsnap>32</vsnap>
+  <hsnap>32</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -51,23 +51,24 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
+    <instance objName="objOverscanOverlay" x="0" y="0" name="inst_09AA25B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objMenuTile" x="512" y="400" name="inst_1297AB80" locked="0" code="" scaleX="4" scaleY="1.52999997138977" colour="2365587455" rotation="0"/>
+    <instance objName="objMenuTile" x="512" y="120" name="inst_466BD3E2" locked="0" code="" scaleX="2.5" scaleY="0.75" colour="2365587455" rotation="0"/>
     <instance objName="objInstructionsControl" x="96" y="0" name="inst_4DFCED1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objInstructionSonia" x="864" y="192" name="inst_7E7813B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherylIdle" x="160" y="192" name="inst_2C53E88A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherylPercentInc" x="160" y="512" name="inst_F848FBAC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherylAllSoulsCorrect" x="160" y="320" name="inst_DFCF7F05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherylFreeze" x="160" y="384" name="inst_8A31E124" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSoniaAllSoulsCorrect" x="864" y="320" name="inst_94CABCD9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherylSpeed" x="160" y="448" name="inst_F417B72E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherylMoreTime" x="160" y="576" name="inst_0DD140C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCherylDoublePts" x="160" y="256" name="inst_03163D03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSoniaPercentInc" x="864" y="512" name="inst_751DA9F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSoniaDoublePts" x="864" y="256" name="inst_7608168E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSoniaMoreTime" x="864" y="576" name="inst_F35E891D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSoniaFreeze" x="864" y="384" name="inst_076F0C38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSoniaSpeed" x="864" y="448" name="inst_18A25118" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objMenuTile" x="512" y="416" name="inst_1297AB80" locked="0" code="" scaleX="4" scaleY="1.64999997615814" colour="2365587455" rotation="0"/>
-    <instance objName="objMenuTile" x="512" y="104" name="inst_466BD3E2" locked="0" code="" scaleX="2.5" scaleY="0.75" colour="2365587455" rotation="0"/>
+    <instance objName="objInstructionSonia" x="860" y="188" name="inst_7E7813B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherylIdle" x="160" y="184" name="inst_2C53E88A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherylPercentInc" x="160" y="477" name="inst_F848FBAC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherylAllSoulsCorrect" x="160" y="321" name="inst_DFCF7F05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherylFreeze" x="160" y="373" name="inst_8A31E124" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSoniaAllSoulsCorrect" x="864" y="321" name="inst_94CABCD9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherylSpeed" x="160" y="425" name="inst_F417B72E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherylMoreTime" x="160" y="529" name="inst_0DD140C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCherylDoublePts" x="160" y="269" name="inst_03163D03" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSoniaPercentInc" x="864" y="477" name="inst_751DA9F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSoniaDoublePts" x="864" y="269" name="inst_7608168E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSoniaMoreTime" x="864" y="529" name="inst_F35E891D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSoniaFreeze" x="864" y="373" name="inst_076F0C38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSoniaSpeed" x="864" y="425" name="inst_18A25118" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

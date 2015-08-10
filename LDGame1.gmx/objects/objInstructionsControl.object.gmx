@@ -128,25 +128,25 @@ if (scrCheckController(0) == true)
         draw_text_ext(512, 150, "When someone in town      kicks the bucket, they will spawn either# or ", 35, 500);                
         draw_text_ext(512, 450, "If Cheryl touches one, then it will start floating up. If Sonia touches one, then it will start falling down.", 35, 500);        
 
-        //80,452
-        draw_line(80, 477, 80, 502);
-        draw_line(75, 477, 75, 492);
-        draw_line(85, 477, 85, 492);
+        // Dark soul up
+        draw_line(144, 484, 144, 509);
+        draw_line(139, 484, 139, 499);
+        draw_line(149, 484, 149, 499);
         
-        //208, 500
-        draw_line(208, 475, 208, 450);
-        draw_line(203, 475, 203, 460);
-        draw_line(213, 475, 213, 460);
+        //Dark soul down
+        draw_line(220, 475, 220, 450);
+        draw_line(215, 475, 215, 460);
+        draw_line(225, 475, 225, 460);
         
-        //852, 416
-        draw_line(852, 391, 852, 366);
-        draw_line(847, 391, 847, 376);
-        draw_line(857, 391, 857, 376);
+        //Good soul down
+        draw_line(828, 395, 828, 380);
+        draw_line(823, 395, 823, 380);
+        draw_line(833, 395, 833, 380);
 
-        //956, 364
-        draw_line(956, 389, 956, 414);
-        draw_line(951, 389, 951, 404);
-        draw_line(961, 389, 961, 404);
+        //Good soul up
+        draw_line(888, 400, 888, 425);
+        draw_line(883, 400, 883, 415);
+        draw_line(893, 400, 893, 415);
         break;        
     
     case rmInstructions3:
@@ -154,8 +154,8 @@ if (scrCheckController(0) == true)
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
         draw_set_color(c_black);
-        draw_text_ext(235, 292, "Each time a soul gets turned around by Cheryl or Sonia, it gets a multiplier increasing its point value.", 35, 350);        
-        draw_text_ext(789, 292, "Make extra sure those souls go to the right afterlife. If they don't you'll lose a lot more points!", 35, 350);
+        draw_text_ext(271, 292, "Each time a soul gets turned around by Cheryl or Sonia, it gets a multiplier increasing its point value.", 35, 310);        
+        draw_text_ext(753, 292, "Make extra sure those souls go to the right afterlife. If they don't you'll lose a lot more points!", 35, 310);
         break;
 
     case rmInstructions4:
@@ -163,15 +163,15 @@ if (scrCheckController(0) == true)
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
         draw_set_color(c_black);
-        draw_text_ext(512, 100, "Keep an eye out for special power-ups! Some are for Cheryl, and some are for Sonia - they aren't so great at sharing.", 35, 500)
+        draw_text_ext(512, 120, "Keep an eye out for special power-ups! Some are for Cheryl, and some are for Sonia - they aren't so great at sharing.", 35, 500)
         
         //Start at 256, +64 each time
-        draw_text(512, 256, "Doubles scoring for 10 seconds");
-        draw_text(512, 320, "Makes souls go the right direction");
-        draw_text(512, 384, "Freezes souls for 3 seconds");
-        draw_text(512, 448, "Doubles speed for 10 seconds");
-        draw_text(512, 512, "All new souls are one type for 5 seconds");
-        draw_text(512, 576, "Adds 10 seconds to time remaining");
+        draw_text(512, 269, "Doubles scoring for 10 seconds");
+        draw_text(512, 321, "Makes souls go the right direction");
+        draw_text(512, 373, "Freezes souls for 3 seconds");
+        draw_text(512, 425, "Doubles speed for 10 seconds");
+        draw_text(512, 477, "All new souls are one type for 5 seconds");
+        draw_text(512, 529, "Adds 10 seconds to time remaining");
         break;    
 }
 
