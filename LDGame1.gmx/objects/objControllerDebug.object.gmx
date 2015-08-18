@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Create member variables
 
-showStatusOnScreen = true; // Change this if you do/don't want to see the status
+showStatusOnScreen = false; // Change this if you do/don't want to see the status
 
 gamePadName = "Gamepad 1"
 

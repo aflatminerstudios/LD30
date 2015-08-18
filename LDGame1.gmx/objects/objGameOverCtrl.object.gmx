@@ -112,9 +112,38 @@ alarm[0] = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Check for start button
+            <string>///Check for button press on gamepad
 
-if (scrCheckController(0))
+var gamePadNum = scrOuyaPlayerGamepad(1);
+if (scrCheckController(gamePadNum))
+{
+   alarm[1] = 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check for Enter, Space, or Esc keyboard button
+
+if (keyboard_check_pressed(vk_space) || 
+    keyboard_check_pressed(vk_enter) ||
+    keyboard_check_pressed(vk_escape))
 {
    alarm[1] = 1;
 }
@@ -179,7 +208,11 @@ rating = (score * pctWrong * maxPeople * pctCorrect) / (totalTime * maxLife);
 goodRating = (score * pctWrong * maxPeople * pctGoodCorrect) / (totalTime * maxLife);
 evilRating = (score * pctWrong * maxPeople * pctEvilCorrect) / (totalTime * maxLife);
 
-ratio = (goodRating)/(evilRating);
+if(evilRating != 0)
+  ratio = (goodRating)/(evilRating);
+else
+  ratio = 0;
+  
 if (ratio &gt; 1)
     ratio = 1 / ratio;
 
@@ -195,27 +228,15 @@ if (ratio &lt;= 0.01) {
 draw_set_font(fntGameOver);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
-draw_text(512, 10, "High Score:  " + string(highScore));
+draw_text(512, 40, "High Score:  " + string(highScore));
 
 draw_set_color(finalColor);
 draw_set_font(fntGameOverBig);
 draw_text(512, 274, string(score));
 
 
-
-draw_set_font(fntGameOver);
-
-
 draw_set_color(finalColor);
-draw_set_font(fntGameOverMed)
-//draw_text(512, 50, "Final Judgement");   
-draw_set_font(fntGameOver);
-
 draw_set_alpha(bottomTextAlpha);
-
-
-
-draw_set_font(fntGameOverMed);
 
 draw_set_font(fntGameOverSmallMed);
 draw_set_color(c_aqua);
@@ -223,8 +244,8 @@ draw_text(250, 434, scrAddLeadingZeros(numberGoodRight,2) + "/" + scrAddLeadingZ
 draw_text(250, 474, scrAddLeadingZeros(floor(goodRating),2));
 
 draw_set_color(c_red);
-draw_text(965, 434, scrAddLeadingZeros(numberEvilRight,2) + "/" + scrAddLeadingZeros(numberEvilRight + numberEvilWrong,2));
-draw_text(965, 474, scrAddLeadingZeros(floor(evilRating),2));
+draw_text(876, 434, scrAddLeadingZeros(numberEvilRight,2) + "/" + scrAddLeadingZeros(numberEvilRight + numberEvilWrong,2));
+draw_text(876, 474, scrAddLeadingZeros(floor(evilRating),2));
 
 
 draw_set_color(c_green);
@@ -243,7 +264,30 @@ draw_set_valign(fa_top);
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="1">
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>alarm[1] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="13">
       <action>
         <libid>1</libid>
         <id>603</id>
