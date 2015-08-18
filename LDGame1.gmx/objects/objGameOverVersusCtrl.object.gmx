@@ -58,6 +58,8 @@ scrEndVibration();
             <kind>1</kind>
             <string>///Go to title screen
 
+score = 0;
+
 audio_stop_sound(sndGameOver);
 
 room_goto(rmTitle);
@@ -83,9 +85,11 @@ room_goto(rmTitle);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>bottomTextAlpha += 0.02;
+            <string>
+bottomTextAlpha += 0.02;
 
-alarm[0] = 1;
+if(bottomTextAlpha &lt; 1.0)
+  alarm[0] = 1;
 </string>
           </argument>
         </arguments>
@@ -108,9 +112,38 @@ alarm[0] = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Check for start button
+            <string>///Check for button press on gamepad
 
-if (scrCheckController(0))
+var gamePadNum = scrOuyaPlayerGamepad(1);
+if (scrCheckController(gamePadNum))
+{
+   alarm[1] = 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check for Enter, Space, or Esc keyboard button
+
+if (keyboard_check_pressed(vk_space) || 
+    keyboard_check_pressed(vk_enter) ||
+    keyboard_check_pressed(vk_escape))
 {
    alarm[1] = 1;
 }

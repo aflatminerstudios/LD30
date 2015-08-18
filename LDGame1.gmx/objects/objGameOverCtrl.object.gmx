@@ -62,6 +62,8 @@ var snd = audio_play_sound_on(musicEmit,sndGameOver, 100, true);
             <kind>1</kind>
             <string>///Go to title screen
 
+score = 0;
+
 audio_stop_sound(sndGameOver);
 
 room_goto(rmTitle);
@@ -87,8 +89,10 @@ room_goto(rmTitle);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>bottomTextAlpha += 0.02;
+            <string>
+bottomTextAlpha += 0.02;
 
+if(bottomTextAlpha &lt; 1.0)
 alarm[0] = 1;
 </string>
           </argument>
@@ -259,52 +263,6 @@ draw_set_font(fntMain);
 draw_set_alpha(1);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>alarm[1] = 1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>alarm[1] = 1;
 </string>
           </argument>
         </arguments>
