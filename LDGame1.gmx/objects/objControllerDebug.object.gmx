@@ -31,6 +31,11 @@ showStatusOnScreen = false; // Change this if you do/don't want to see the statu
 
 gamePadName = "Gamepad 1"
 
+operatingSystem = "Unknown"
+if(os_type == os_windows)
+  operatingSystem = "Windows"
+else if(os_type == os_android)
+  operatingSystem = "Android"
 
 gamePad1Status = "";
 keyboardStatus = "";
@@ -215,7 +220,7 @@ keyboardStatus += "#Last Character: " + string(keyboard_lastchar);
             <kind>1</kind>
             <string>/// Draw status on screen
 if(showStatusOnScreen) {
-  var fullStatus = gamePad1Status + "##" + keyboardStatus;
+  var fullStatus = gamePad1Status + "##" + keyboardStatus + "##OS Type: " + operatingSystem;
   draw_set_font(-1); // Use default font (-1)
   draw_set_halign(fa_left);
   draw_set_valign(fa_top);

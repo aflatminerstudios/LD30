@@ -25,7 +25,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>/// Hide non-OUYA controls while on OUYA
+if(os_type == os_android){
+  if(room == rmInstructions){
+    with(objWKey)
+      instance_destroy();
+    with(objAKey)
+      instance_destroy();
+    with(objSKey)
+      instance_destroy();
+    with(objDKey)
+      instance_destroy();
+      
+    with(objUpArrow)
+      instance_destroy();
+    with(objLeftArrow)
+      instance_destroy();
+    with(objDownArrow)
+      instance_destroy();
+    with(objRightArrow)
+      instance_destroy();
+    
+  }
+}
+</string>
           </argument>
         </arguments>
       </action>

@@ -130,15 +130,16 @@ var gamePadNum = scrOuyaPlayerGamepad(1);
 hspeed += gamepad_axis_value(gamePadNum, gp_axislh) * vxDelta *2;
 vspeed += gamepad_axis_value(gamePadNum, gp_axislv) * vyDelta *2;
 
-if (keyboard_check(ord("a")) || keyboard_check(ord("A")))
-  hspeed += -vxDelta;
-if (keyboard_check(ord("d")) || keyboard_check(ord("D")))
-  hspeed += vxDelta;
-if (keyboard_check(ord("w")) || keyboard_check(ord("W")))
-  vspeed += -vyDelta;
-if (keyboard_check(ord("s")) || keyboard_check(ord("S")))
-  vspeed += vyDelta;
-
+if(os_type != os_android){
+  if (keyboard_check(ord("a")) || keyboard_check(ord("A")))
+    hspeed += -vxDelta;
+  if (keyboard_check(ord("d")) || keyboard_check(ord("D")))
+    hspeed += vxDelta;
+  if (keyboard_check(ord("w")) || keyboard_check(ord("W")))
+    vspeed += -vyDelta;
+  if (keyboard_check(ord("s")) || keyboard_check(ord("S")))
+    vspeed += vyDelta;
+}
 if(speed &gt; maxSpeed * speedMult)
   speed = maxSpeed * speedMult;
 
@@ -189,15 +190,16 @@ if (!frozen) {
     var xAxisTotal = gamepad_axis_value(gamePadNum, gp_axislh);
     var yAxisTotal = gamepad_axis_value(gamePadNum, gp_axislv);
     
-      
-    if (keyboard_check(ord("a")) || keyboard_check(ord("A")))
-      xAxisTotal += -1;
-    if (keyboard_check(ord("d")) || keyboard_check(ord("D")))
-      xAxisTotal += 1;
-    if (keyboard_check(ord("w")) || keyboard_check(ord("W")))
-      yAxisTotal += -1;
-    if (keyboard_check(ord("s")) || keyboard_check(ord("S")))
-      yAxisTotal += 1;
+    if(os_type != os_android){
+      if (keyboard_check(ord("a")) || keyboard_check(ord("A")))
+        xAxisTotal += -1;
+      if (keyboard_check(ord("d")) || keyboard_check(ord("D")))
+        xAxisTotal += 1;
+      if (keyboard_check(ord("w")) || keyboard_check(ord("W")))
+        yAxisTotal += -1;
+      if (keyboard_check(ord("s")) || keyboard_check(ord("S")))
+        yAxisTotal += 1;
+    }
       
     
     var controlDir = point_direction(0, 0, xAxisTotal, yAxisTotal);
